@@ -2,9 +2,105 @@
 <html>
     <head>
         <title>Richard's Web Page</title>
+        <style>
+            body {
+                background: rgb(74, 104, 202);
+                color: rgb(45, 45, 45);
+                padding: 10px;
+                font-family: arial;
+            }
+            #all-contents {
+              max-width: 800px;
+                margin: auto;
+            }
+         
+            /* navigation menu */
+            nav {
+                background: rgb(41, 239, 74);
+               margin: 0 auto;
+                display: flex;
+                padding:10px;
+            }
+            h1 {
+                display: flex;
+                align-items: center;
+                color: rgb(43, 43, 43);
+                flex: 1;
+                margin: 0;
+            }
+            #nav-ul {
+                list-style-image: none;
+            }
+            .nav-li {
+                display: inline-block;
+                padding: 30px;
+            }
+            a {
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+                padding-right: 100px;
+            }
+         
+            /* main container area beneath menu */
+            main {
+                background: rgb(245, 238, 219);
+                display: flex;
+            }
+            .sidebar {
+                margin-right: 25px;
+                padding: 20px;
+            }
+            .sidebar-img {
+                width: 200px;
+            }
+            .content {
+                flex: 1;
+                padding: 35px;
+            }
+            #interests {
+                border: 10px silver ridge;
+                padding: 8px;
+            }
+            h2, h3 {
+                margin: 0px;
+            }
+         </style>
     </head>
     
     <body>
-    
+        <div>
+            <nav>
+                <h1>Richard's First Web Page</h1>
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="projects.html">Projects</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <main>
+                <!-- Sidebar -->
+                <div>
+                    <img src="https://media-exp1.licdn.com/dms/image/C5603AQGfFGUaWLgWqQ/profile-displayphoto-shrink_200_200/0/1619530161696?e=1659571200&v=beta&t=mfxWTgGOsMPzdL6qBYhwNH5sRH_aYZz-Y0RfU4qw4Is">
+                </div>
+                <!-- Content -->
+                <div>
+                    <h2>Richard O'Connell</h2>
+                    <p>Teacher/Coach at Covington High School</p>
+                    <!-- Interest Section -->
+                    <div>
+                        <h3>Interests</h3>
+                        <ul>
+                            <li>Cycling</li>
+                            <li>Reading</li>
+                            <li>Hiking</li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
     </body>
 </html>
