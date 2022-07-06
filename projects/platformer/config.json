@@ -1,0 +1,6 @@
+{
+    "name": "platformer",
+    "asset": {
+        "player": {"name": "halle", "atlas": "asset/halle/phaser-json-array/halle.png", "json": "asset/halle/phaser-json-array/halle.json"}
+    }
+}

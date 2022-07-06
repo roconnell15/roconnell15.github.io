@@ -1,0 +1,35 @@
+{
+  "name": "circularity",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Poetry in Motion",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.0",
+    "sinon": "^3.3.0"
+  },
+  "scripts": {
+    "pretest": "npm install",
+    "test": "mocha ./test/index.spec.js || :",
+    "posttest": "rm -rf ./test ./node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OperationSpark/circularity.git"
+  },
+  "keywords": [
+    "circularity",
+    "phaser.js"
+  ],
+  "author": "jfraboni",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OperationSpark/circularity/issues"
+  },
+  "homepage": "https://github.com/OperationSpark/circularity#readme"
+}
