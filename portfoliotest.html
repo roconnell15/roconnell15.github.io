@@ -8,31 +8,31 @@
                 color: rgb(45, 45, 45);
                 padding: 10px;
                 font-family: arial;
-                font-size: 20px;
             }
+            header {
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+            
             #all-contents {
-              max-width: auto;
+                max-width: 800px;
                 margin: auto;
             }
+    
             /* navigation menu */
             nav {
                 background: rgb(41, 239, 74);
-               margin: 0 auto;
+                margin: 0 auto;
                 display: flex;
-                padding:10px;
+                padding: 10px;
                 border-radius: 10px;
                 border-color: black;
-                margin: 0 auto;
-                margin-bottom: 20px;
             }
             h1 {
                 display: flex;
                 align-items: center;
-                color: rgb(43, 43, 43);
+                color: rgb(0, 0, 0);
                 flex: 1;
-                margin: 0;
-                font-style: oblique;
-                font-size: 40px;
             }
             #nav-ul {
                 list-style-image: none;
@@ -48,16 +48,12 @@
     
             /* main container area beneath menu */
             main {
-                background: beige;
+                background: rgb(245, 238, 219);
                 display: flex;
                 border-radius: 10px;
                 border-color: black;
             }
-            a {
-                text-decoration: none;
-                color: rgb(0, 0, 0);
-                padding-right: 100px;
-            }
+                     /* portfolio styles */
          .content h1 {
              color: black;
              flex: 1;
@@ -74,21 +70,17 @@
              padding: 10px;
              border-radius: 10px;
              margin-bottom: 10px;
-             margin-left: 20px;
          }
          
          #portfolio li:hover {
-             background: rgb(80, 229, 255);
+             background: #eee;
          } 
          
          #portfolio a {
              text-decoration: none;
              color: #454545;
          }
-         h2 {
-            margin-left: 10px;
-         }
-         </style>
+        </style>
     </head>
 
     <body>
@@ -96,22 +88,21 @@
         <nav>
             <h1>Richard's Portfolio Page</h1>
             <ul id="nav-ul">
-                <li class="nav-li">
-                <a class="nav-a" href="index.html">Home</a>
-                </li>
-                <li class="nav-li">
-                <a class="nav-a" href="portfolio.html">Portfolio</a>
-                </li>
-            </ul>
+               <li class="nav-li">
+               <a class="nav-a" href="index.html">Home</a>
+             </li>
+             <li class="nav-li">
+               <a class="nav-a" href="portfolio.html">Portfolio</a>
+             </li>
+         </ul>
      </nav>
      <main>
         <div class="content">
             <h2>Portfolio</h2>
-            <ul id="portfolio">
+            <ul id="portfolio"></ul>
             <li><a href="projects/platformer/">Platformer : A cannon - dodging, collectible - grabbing adventure game for Halleb0t</a></li>
             <li><a href="projects/bouncing-box/">Bouncing Box : A project that gives you a taste of game development on the web </a></li>
             <li><a href="projects/circularity/">Circularity : A motion poem using random number generation and velocity applied to circle shapes...</a></li>
-            </ul>
         </div>
      </main>
       </div>
