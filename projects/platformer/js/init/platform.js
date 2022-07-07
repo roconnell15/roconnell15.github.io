@@ -39,7 +39,7 @@
         // example:
         createPlatform(350, 250);
         createPlatform(1, 460, 1.6);
-        createPlatform(800, 575, .5);
+        createPlatform(800, 575, .5);  //this is the lowest platform
         createPlatform(800, 475, .5);
         createPlatform(800, 375, .5);
         createPlatform(800, 275, .5);
