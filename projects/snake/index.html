@@ -1,39 +1,51 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Snake Game</title>
-    <!-- Load CSS files -->
-    <style>
-  body {
-    background-color: rgb(122, 204, 122);
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Snake!</title>
+   <style>
+        nav {
+            font-size: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: -60px;
+            text-align: center;
         }
+       body{
+           margin-top: 60px;
+           padding: 0px;
+           display: flex;
+            flex-direction: column; /* arrage items on top of the other */
+            justify-content: center;
+            align-items: center;
+            background-color: lightgreen;
+       }
+       canvas{
+           box-shadow: black 20px 10px 50px; /*elevate our canvas*/
 
-  #board {
-    width: 440px;
-    height: 440px;
-    border: 1px solid white;
-    background-color: black;
-    position: relative;
-          }
-
-  #gameItem {
-    background-color: teal;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-  /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
-  /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
-            }
-
-    </style>
-    <!-- Load JavaScript files -->
-    <script src="jquery.min.js"></script>
-    <script src="index.js"></script>
-  </head>
-  
-  <body>
-    <div id='board'>
-      <div id='gameItem'></div>
-    </div>
-  </body>
+       }
+       #directions {
+        position: bottom;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        background-color: beige;
+        margin-top: 20px;
+        border-radius: 10px;
+        padding: 10px;
+       }
+   </style>
+</head>
+<body>
+    <nav>
+        <h1>Classic Snake!</h1>
+        <canvas id="game" width="400" height="400"/>   
+        <script src="index.js"></script>
+    </nav>    
+    <div id="directions">
+        <h2 id="directions-top">Directions:</h2>
+        <p>- Press the arrow keys in any directions to start.</p>
+        <p>- Collect as many Red Apples as you can without colliding into a wall or yourself.</p>
+    </div>     
+</body>
 </html>
