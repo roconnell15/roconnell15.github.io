@@ -18,7 +18,7 @@
             /* navigation menu */
             nav {
                 background: rgb(41, 239, 74);
-               margin: 0 auto;
+                margin: 0 auto;
                 display: flex;
                 padding:10px;
                 border-radius: 10px;
@@ -61,8 +61,10 @@
                 display: flex;
                 border-radius: 10px;
                 border-color: rgb(43, 43, 43);
-                margin-top: 20px;
                 padding: 30px;
+                max-width: 950px;
+                margin: auto;
+                margin-top: 20px;
             }
             .sidebar {
                 margin-right: 25px;
@@ -84,6 +86,67 @@
             }
             h2, h3 {
                 margin: 0px;
+            }
+            .slideshow-container {
+                max-width: 1000px;
+                position: center;
+                margin: auto;
+                margin-top: 20px;
+            }
+
+            /* Hide the images by default */
+            .mySlides {
+                display: none;
+            }
+
+            /* Next & previous buttons */
+            .prev, .next {
+                cursor: pointer;
+                position: relative;
+                top: 50%;
+                width: auto;
+                margin-top: -10px;
+                padding: 16px;
+                color: white;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                border-radius: 10px;
+                user-select: none;
+                margin-left: 300px;
+            }
+
+            /* Position the "next button" to the right */
+            .next {
+                right: 0;
+                border-radius: 10px;
+            }
+
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover, .next:hover {
+                background-color: rgba(0, 0, 0, 0.432);
+            }
+
+            /* Caption text */
+            .text {
+                color: #f2f2f2;
+                font-size: 15px;
+                padding: 8px 12px;
+                position: absolute;
+                bottom: 8px;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Fading animation */
+            .fade {
+                animation-name: fade;
+                animation-duration: 1.5s;
+            }
+
+            @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
             }
          </style>
     </head>
@@ -121,19 +184,167 @@
                         </ul>
 
                 </div>
-                </div>
             </main>
-            <main class="bottomText">
-                <div class="info">
-                    <h2>Here is what you can find on this web page.</h2>
-                    <ul>
-                        <li>A series of photos I have taken over my career as a professional photographer.</li>
-                        <li>A few coding exercises learned during my training with Operation Spark.</li>
-                        <li>An example of HTML, CSS, and Javascript at work!</li>
-                    </ul>
-                    <h3>Thanks for checking it out!</h3>
                 </div>
-            </main>
+            
+        <main class="bottomText">
+            <div class="info">
+                <h2>Here is what you can find on this web page.</h2>
+                <ul>
+                <li>A series of photos I have taken over my career as a professional photographer.</li>
+                <li>A few coding exercises learned during my training with Operation Spark.</li>
+                <li>An example of HTML, CSS, and Javascript at work!</li>
+                </ul>
+                <h3>Thanks for checking it out!</h3>
+            </div>
+        </main>
+                <!-- Start slideshow creation for portfolio. -->
+        
+    <div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+        <img src="assets/logograndcanyon.jpeg" style="width:100%">
+        <!-- Below adds captions. Come back later. -->
+        <!-- <div class="text"></div> -->
+        </div>
+    
+        <div class="mySlides fade">
+        <img src="assets/beach.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+    
+        <div class="mySlides fade">
+        <img src="assets/tristyn.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+        
+        <div class="mySlides fade">
+        <img src="assets/pond.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+         </div>
+        
+        <div class="mySlides fade">
+        <img src="assets/moon.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+        <img src="assets/ROlogo.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+        <img src="assets/redsky.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+            
+        <div class="mySlides fade">
+        <img src="assets/audi.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+    
+        <div class="mySlides fade">
+        <img src="assets/cheyenne.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+    
+        <div class="mySlides fade">
+        <img src="assets/Seaside Lights.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+            
+        <div class="mySlides fade">
+        <img src="assets/redmoon.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+    
+        <div class="mySlides fade">
+        <img src="assets/robeech.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+        <img src="assets/rospin.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+            
+        <div class="mySlides fade">
+        <img src="assets/IMVN9314.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+    
+        <div class="mySlides fade">
+        <img src="assets/JITL4029.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+        <img src="assets/IMG_1353.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+            
+        <div class="mySlides fade">
+        <img src="assets/slow spin.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+    
+        <div class="mySlides fade">
+        <img src="assets/IMG_3240 (1).jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+        <img src="assets/IMG_3241.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+                
+        <div class="mySlides fade">
+        <img src="assets/neon.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+        
+        <div class="mySlides fade">
+        <img src="assets/notjunk.jpeg" style="width:100%">
+        <!-- <div class="text"></div> -->
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+  
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        }
+        </script>
         </div>
     </body>
 </html>
