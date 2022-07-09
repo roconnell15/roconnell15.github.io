@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    #die {
+        height: 100px;
+        width: 100px;
+        background-color: rgb(18, 160, 13); /* feel free to change this */
+        position: relative;
+    }
+    body {
+        background-color: aquamarine;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</head>
+<body>
+<div id="die">
+   
+</div>
+</body>
+<script>
+    $('<div>')
+    .css("height", 15)
+    .css("width", 15)
+    .css("background-color", "black")
+    .css("position", "absolute")
+    .css('top', 50)
+    .css('left', 50)
+    .appendTo("#die");
+</script>
+</html>
