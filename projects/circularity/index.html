@@ -30,12 +30,21 @@
         canvas {
             color: white;
         }
+        button {
+            position:absolute;
+            left:45%;
+            top:50%
+            
+            }
         </style>
     </head>
     <body>
         <div>
-            <canvas id="canvas" width="500" height="500"></canvas>
+            <canvas id="canvas" width="500" height="500">
+            </canvas>
+            <button type="menu" onClick="window.location.reload();">Refresh Page</button>
         </div>
+        
         <script id="motion-poem">
             (function(){
                 init(window);
