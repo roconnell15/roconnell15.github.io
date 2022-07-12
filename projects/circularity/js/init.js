@@ -40,7 +40,7 @@ var init = function (window) {
         // drawCircle();
         // drawCircle();
 
-        for (var i = 0; i < 150; i++) {
+        for (var i = 0; i < 200; i++) {
             drawCircle()
         }
 
