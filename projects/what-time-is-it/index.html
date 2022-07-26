@@ -1,47 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>What time is it?</title>
-  <script>
-        function currentTime() {
-            var date = new Date();
-            var hh = date.getHours();
-            var mm = date.getMinutes();
-            var ss = date.getSeconds();
-            var session = "AM";
-
-            if(hh === 0){
-                hh = 12;
-            }
-            if(hh > 12){
-                hh = hh - 12;
-                session = "PM";
-            }
-
-            hh = (hh < 10) ? "0" + hh : hh;
-            mm = (mm < 10) ? "0" + mm : mm;
-            ss = (ss < 10) ? "0" + ss : ss;
-                
-            var time = hh + ":" + mm + ":" + ss + " " + session;
-
-            document.getElementById("clock").innerText = time; 
-            var t = setTimeout(function(){ currentTime() }, 1000);
-            }
-        currentTime();
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>What time is it?</title>
     <style>
-    body {
+        body {
         font-family: system-ui;
         background: #50B77C;
         color: white;
         text-align: center;
-        font-size: 100px;
+        font-size: 50px;
         }
     </style>
 </head>
 <body>
-<div id = "clock" onload="currentTime()"></div>
+    <div class="title-container">
+        <h1>A Simple Digital Clock</h1>
+        <h4>Coded in Javascript</h4>
+    </div>
+    <div class="clock-container">
+        <h1 id="time-display"></h1>
+        <h1 id="date-display"></h1>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
