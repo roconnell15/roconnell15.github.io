@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <title>What time is it?</title>
+<!-- A WORK IN PROGRESS ON ROTATING BACKGROUND COLOR -->
+    <!-- <script type="text/javascript">
+        function random_colo(){
+            var color="#";
+            var letters=['000000', 'FF0000', '00FF00', '0000FF', 'FFFF00', '00FFFF', 'FF00FF', 'C0C0C0'];
+            color+=letters[Math.floor(Math.random()*letters.legnth)];
+            document.getElementById('change').style.background=color;
+        }
+    </script> -->
     <style>
         body {
         font-family: system-ui;
-        background: #50B77C;
+        background: #bd89ca;
         color: white;
         text-align: center;
         zoom: 200%;
@@ -15,7 +24,7 @@
         }
     </style>
 </head>
-<body>
+<body id="change" onload="return random_colo()">
     <div class="title-container">
         <h1>A Simple Digital Clock</h1>
         <h4>Coded in Javascript</h4>
