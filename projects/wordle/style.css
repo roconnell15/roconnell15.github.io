@@ -45,6 +45,7 @@ h1 {
     display: flex;
     margin: 2px;
     margin-left: 5px;
+    overflow: scroll;
   }
   
 .second-row {
