@@ -2,7 +2,6 @@ body {
     background-color: rgb(58, 177, 224);
     object-fit: fill;
     scale: 100%;
-    min-width: 400px;
 }
 h1 {
     text-align: center;
