@@ -1,6 +1,6 @@
 body {
     background-color: rgb(58, 177, 224);
-    min-width: 1000px;
+    min-width: 1300px;
 }
 h1 {
     text-align: center;
@@ -44,6 +44,7 @@ h1 {
 #keyboard-cont div {
     display: flex;
     margin: 2px;
+    margin-left: 5px;
   }
   
 .second-row {
