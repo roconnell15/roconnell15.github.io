@@ -11,6 +11,26 @@ h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-shadow: 0 0 10px #ffffff, 0 0 10px #ffffff;
    }
+h2 {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+.info {
+    background: beige;
+    border-radius: 10px;
+    border-color: black;
+    max-width: fit-content;
+    padding: 20px;
+    min-width: 500px;
+    position: relative;
+    margin-top: 20px;
+    padding-top: 10px;
+    font-family: Arial, sans-serif;
+}
+h3 {
+    text-align: center;
+}
 #game-board {
     display: flex;
     align-items: center;
