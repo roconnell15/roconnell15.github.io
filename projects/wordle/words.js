@@ -598,6 +598,7 @@ export const WORDS = [
 'drink',
 'drive',
 'droit',
+'droid',
 'droll',
 'drone',
 'drool',
