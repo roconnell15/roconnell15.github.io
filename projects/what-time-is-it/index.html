@@ -5,18 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <title>What time is it?</title>
 <!-- A WORK IN PROGRESS ON ROTATING BACKGROUND COLOR -->
-    <!-- <script type="text/javascript">
-        function random_colo(){
-            var color="#";
-            var letters=['000000', 'FF0000', '00FF00', '0000FF', 'FFFF00', '00FFFF', 'FF00FF', 'C0C0C0'];
-            color+=letters[Math.floor(Math.random()*letters.legnth)];
-            document.getElementById('change').style.background=color;
-        }
-    </script> -->
+    <script type="text/javascript">
+        var colors = ['#760CE8', 
+        '#4782B1', 
+        '#E8890C', 
+        '#bd89ca', 
+        '#000000', 
+        '#d1b66b', 
+        '#6bd1c5', 
+        '#a4d94a', 
+        '#d94a88', 
+        '#5e0011', 
+        '#506652', 
+        '#545453', 
+        '#065535', 
+        '#4b3832', 
+        '#be9b7b',
+        '#ff6666',
+        '#455b55',
+        '#98ca82',
+        '#76a5af',
+        '#8c2601',
+        '#d0ff00',
+        '#25c1bf',
+        '#0e1a40',
+        '#ffb400',
+        '#99aec9',
+        '#997555',
+        '#1f8d2e'];
+
+        var changeBackground = function() {
+            document.body.style.background = colors[Math.floor(Math.random()*colors.length)];
+        };
+
+        changeBackground();
+    </script>
     <style>
         body {
         font-family: system-ui;
-        background: #bd89ca;
         color: white;
         text-align: center;
         zoom: 200%;
@@ -24,7 +50,7 @@
         }
     </style>
 </head>
-<body id="change" onload="return random_colo()">
+<body id="change" onload="changeBackground();">
     <div class="title-container">
         <h1>A Simple Digital Clock</h1>
         <h4>Coded in Javascript</h4>
