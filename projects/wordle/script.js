@@ -1,10 +1,10 @@
-import { WORDS } from "./words.js";
+import { WORDScorrect } from "./words.js";
 
 const NUMBER_OF_GUESSES = 6;
 let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
-let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)]
+let rightGuessString = WORDScorrect[Math.floor(Math.random() * WORDScorrect.length)]
 
 console.log(rightGuessString)
 
@@ -66,7 +66,7 @@ function checkGuess () {
         return
     }
 
-    if (!WORDS.includes(guessString)) {
+    if (!WORDScorrect.includes(guessString)) {
         toastr.error("Word not in list!")
         return
     }
