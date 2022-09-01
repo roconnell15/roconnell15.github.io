@@ -36,7 +36,7 @@
                 margin: 0;
                 font-style: oblique;
                 font-size: 40px;
-                padding: 10px;
+                padding: 2px;
             }
             #nav-ul {
                 list-style-image: none;
@@ -398,25 +398,78 @@
         
         <div class="mySlides fade">
         <img class="slideshow-image" src="assets/notjunk.jpeg" style="width:100%">
-
         <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <img class="slideshow-image" src="assets/uploads8/b and w 3.jpg" style="width:100%">
+            <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <img class="slideshow-image" src="assets/uploads8/IMG_0189.JPG" style="width:100%">
+            <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <img class="slideshow-image" src="assets/uploads8/IMG_0809.JPG" style="width:100%">
+            <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <img class="slideshow-image" src="assets/uploads8/IMG_1598.JPG" style="width:100%">
+            <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <img class="slideshow-image" src="assets/uploads8/IMG_2978.jpg" style="width:100%">
+            <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <img class="slideshow-image" src="assets/uploads8/IMG_3204.jpg" style="width:100%">
+            <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <img class="slideshow-image" src="assets/uploads8/pepper.jpg" style="width:100%">
+            <!-- <div class="text"></div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <img class="slideshow-image" src="assets/uploads8/IMG_6145.JPG" style="width:100%">
+            <!-- <div class="text"></div> -->
         </div>
     </div>
     <br>
     <script>
-        let slideIndex = 0;
-        showSlides();
-        
-        function showSlides() {
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
         let i;
         let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
         for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+            slides[i].style.display = "block";
         }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
         slides[slideIndex-1].style.display = "block";
-        setTimeout(showSlides, 4000); 
+        dots[slideIndex-1].className += " active";
         }
     </script>
         </div>
