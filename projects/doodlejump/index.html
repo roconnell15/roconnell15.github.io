@@ -108,9 +108,14 @@ Orginal code / game based on Authors: Kushagra Agarwal and Lima Sky with touch c
 
 		h1 {
 			font-size: 60px;
-			color: #5a5816;
+			color: #25c900;
 			transform: rotate(-10deg);
 			margin: 0px;
+			text-shadow:
+						-2px -2px 0 #000,
+						2px -2px 0 #000,
+						-2px 2px 0 #000,
+						2px 2px 0 #000; 
 		}
 
 		h3 {
@@ -174,11 +179,11 @@ Orginal code / game based on Authors: Kushagra Agarwal and Lima Sky with touch c
 		</canvas>
 
 		<div id="mainMenu">
-			<h1>doodle jump</h1>
+			<h1>Pop Cat Jump!</h1>
 			<h3>using HTML5</h3>
 
 			<p class="info">
-				use
+				Use
 				<span class="key left">?</span>
 				<span class="key right">?</span>
 				to move and space to (re) start...
@@ -187,8 +192,8 @@ Orginal code / game based on Authors: Kushagra Agarwal and Lima Sky with touch c
 		</div>
 
 		<div id="gameOverMenu">
-			<h1>game over!</h1>
-			<h3 id="go_score">you scored 0 points</h3>
+			<h1>Game over!</h1>
+			<h3 id="go_score">You scored 0 points...</h3>
 
 			<a class="button" href="javascript:reset()">Restart</a>
 		</div>
