@@ -8,6 +8,7 @@ let rightGuessString = WORDScorrect[Math.floor(Math.random() * WORDScorrect.leng
 
 console.log(rightGuessString)
 
+
 function initBoard() {
     let board = document.getElementById("game-board");
 
