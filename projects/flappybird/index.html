@@ -12,16 +12,13 @@
 </head>
 <body>
 
-
-
 <script>
-
 const _GRAVITY = 800;
 const _MAX_UPWARDS_VELOCITY = -300;
 const _UPWARDS_ACCELERATION = -450;
 const _TERMINAL_VELOCITY = 400;
-const _PIPE_SPACING_Y = 100;
-const _TREADMILL_SPEED = -125;
+const _PIPE_SPACING_Y = 150;
+const _TREADMILL_SPEED = -325;
 
 const _CONFIG_WIDTH = 960;
 const _CONFIG_HEIGHT = 540;
@@ -30,7 +27,7 @@ const _GROUND_Y = _CONFIG_HEIGHT;
 
 class FlappyBirdObject {
   constructor(scene) {
-    this._sprite = scene.add.sprite(50, 100, 'bird');
+    this._sprite = scene.add.sprite(40, 90, 'bird');
     this._velocity = 0;
   }
 
@@ -280,9 +277,9 @@ class FlappyBirdGame {
   }
 
   _GameOver() {
-    const text = "GAME OVER";
+    const text = "GAME OVER - Press R to try again";
     const style = {
-      font: "100px Arial",
+      font: "60px Arial",
       fill: "#FFFFFF",
       align: "center",
       fixedWidth: _CONFIG_WIDTH,
