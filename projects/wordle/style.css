@@ -2,6 +2,7 @@ body {
     background-color: rgb(19, 20, 41);
     object-fit: fill;
     scale: 100%;
+    font-family: Helvetica;
 }
 h1 {
     text-align: center;
@@ -37,6 +38,7 @@ h3 {
     display: flex;
     align-items: center;
     flex-direction: column;
+    font-family: Helvetica;
 }
 .letter-box {
     border: 2px solid lightgray;
