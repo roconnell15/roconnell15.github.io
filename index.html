@@ -13,9 +13,8 @@
             }
             #all-contents {
                 max-width: fit-content;
-                margin: auto;
-                margin-left: 12%;
-                margin-right: 12%;
+                margin-left: auto;
+                margin-right: auto;
                 align-self: center;
             }
          
@@ -24,6 +23,7 @@
                 background: rgb(41, 239, 74);
                 margin: 0 auto;
                 display: flex;
+                justify-content: center;
                 padding: 10px;
                 border-radius: 10px;
                 border-color: black;
@@ -109,8 +109,8 @@
                 position: center;
                 margin: auto;
                 margin-top: 20px;
-                margin-left: 14%;
-                margin-right: 10%;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             /* Hide the images by default */
@@ -211,7 +211,7 @@
             </main>
                 </div>
             
-        <article class="bottomText">
+        <article class="bottomText" id="all-contents">
             <div class="info">
                 <h2>Here is what you can find on this web page.</h2>
                 <ul>
@@ -414,7 +414,6 @@
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
     <br>
-  
     <script>
         let slideIndex = 1;
         showSlides(slideIndex);
