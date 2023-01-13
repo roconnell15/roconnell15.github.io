@@ -21,7 +21,7 @@ $(document).ready(function () {
         
         opspark.player.init(game);
         
-        const textOpts = { fontSize: '30px', fill: '#000' };
+        const textOpts = { fontSize: '30px', fill: 'white' };
         game.score = game.add.text(10, 16, 'Score: 0', textOpts);
         game.lives = game.add.text(10, 70, 'Lives: ' + lives, textOpts);
     }
