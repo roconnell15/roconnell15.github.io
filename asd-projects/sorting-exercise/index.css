@@ -1,0 +1,55 @@
+#fullContainer {
+    width:100%;
+}
+#buttonContainer {
+    margin:auto;
+    width: 40%;
+}
+#goButton {
+    margin: auto;
+    width: 100%;
+    border: 2px darkgray double;
+    background: lightgray;
+    font-size: 30px;
+}
+#sortContainer {
+    display: table;
+    margin: 0 auto;
+    width: 100%;
+}
+.subContainer {
+    display: inline-block;
+    width:45%;
+    border: 4px forestgreen groove;
+    margin-top: 1.25%;
+}
+#bubbleArea {
+    margin-left: 2.5%;
+}
+#quickArea {
+    margin-left: 3.75%;
+}
+.subContainer > h2 {
+    margin-left: 5%;
+    height: 32px;
+    margin-top: 0;
+}
+.sortElement {
+    background-position: center;
+    background-repeat: repeat-x;
+    position: absolute;
+    left: 0px;
+    margin: 0;
+    padding: 0;
+}
+.subContainer > div {
+    position: relative;
+}
+.bubbleElement {
+    background: url('img/bubble.png');
+    /*border: 2px aqua ridge;*/
+}
+.quickElement {
+    background: url('img/quick.png');
+    /*border: 2px firebrick ridge;*/
+}
