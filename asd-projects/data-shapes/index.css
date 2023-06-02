@@ -1,7 +1,7 @@
 #board {
   width: 400px;
   margin: auto;
-  border: silver ridge 4px;
+  border: rgb(0, 255, 34) ridge 4px;
 }
 
 #info-bar {
@@ -15,7 +15,7 @@
 #shape-container {
   width: 400px;
   height: 400px;
-  background: black;
+  background: rgb(82, 82, 82);
   border-top: silver ridge 4px;
   border-bottom: silver ridge 4px;
 }
@@ -33,7 +33,7 @@
   position: relative;
   top: 150px;
   left: 150px;
-  border: white solid 2px;
+  border: rgb(0, 255, 34) solid 2px;
   display: block;
 }
 
@@ -47,4 +47,7 @@ button {
 
 p {
   margin: 10px;
+}
+body{
+  background-color: black;
 }
