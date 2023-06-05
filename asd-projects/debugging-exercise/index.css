@@ -8,10 +8,10 @@
 
 
 .circle {
-    background: rgb(15, 255, 35);
-    width: 100px;
-    height: 100px;
-    border-radius: 80px;
+    background: rgba(137, 255, 137, 0.562);
+    width: 70px;
+    height: 70px;
+    border-radius: 60px;
     position: absolute;
 }
 

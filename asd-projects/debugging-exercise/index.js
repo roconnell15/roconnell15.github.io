@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 // this section initializes some variables that will be used throughout the program
 var doubleMaxSpeed = 10;
-var maxCircles = 10;
+var maxCircles = 30;
 var $board = $('#board');
 var boardWidth = $($board).width();
 var boardHeight = $($board).height();
