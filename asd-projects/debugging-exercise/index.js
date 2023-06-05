@@ -5,7 +5,7 @@ $(document).ready(function(){
 /////////////////
 
 // this section initializes some variables that will be used throughout the program
-var doubleMaxSpeed = 5;
+var doubleMaxSpeed = 10;
 var maxCircles = 10;
 var $board = $('#board');
 var boardWidth = $($board).width();
@@ -26,6 +26,7 @@ for (var i = 0; i < maxCircles; i++){
     
     addNewCircleElement(newCircle, newId);
 }
+
 
 // this tells the program to run the update function 60 times per second
 setInterval(update, 1000/60);
@@ -48,10 +49,10 @@ function makeCircle(id){
     
     // this gives the circle object all of the data that it needs to store
     circle.id = "#" + id;
-    circle.x = Math.random() * maXX + circleRadius;
+    circle.x = Math.random() * maxX + circleRadius;
     circle.y = Math.random() * maxY + circleRadius;
     circle.speedX = decideSpeed();
-    circle.speedY = desideSpeed();
+    circle.speedY = decideSpeed();
     
     return circle;
 }
@@ -63,11 +64,11 @@ function decideSpeed(){
 
 // this generates an id for a circle given the circle's number
 function getId(number){
-    return "circle" + number; ()
+    return "circle" + number; 
 }
 
 // this adds a circle into the HTML
-funtion addNewCircleElement(circle, id){
+function addNewCircleElement(circle, id){
 
     // this creates the HTML for a new circle element 
     var $circle = $('<div>').attr('id', id)
@@ -82,15 +83,15 @@ funtion addNewCircleElement(circle, id){
 //////////////////
 // update function
 //////////////////
-
+debugger;
 // this should move all of the circles
-function update){
+function update() {
 
     // loop over the circles array. We use the maxCircles variable instead of circles.length
     // to make seeing issues in the debugger slightly easier (in practice, you should use
     // circles.length, but do NOT change it here)
-    for (var i = 0; i < maxCircles; i++){
-        var circle = circles[j];
+    for (var i = 0; i <= maxCircles; i++){
+        var circle = circles[i];
 
         // move the circle
         moveCircle(circle);
@@ -109,7 +110,7 @@ function update){
 
 // this moves circles in memory but doesn't update them on the screen
 function moveCircle(circle){
-    circle.x = circle.speedX;
+    circle.x += circle.speedX;
     circle.y += circle.speedY;
 }
 
@@ -117,7 +118,7 @@ function moveCircle(circle){
 function bounceCircle(circle){
 
     // this bounces off the left wall
-    if (circle.x < 0{
+    if (circle.x < 0){
         circle.x -= circle.speedX;
         circle.speedX *= -1;
     }
@@ -134,13 +135,13 @@ function bounceCircle(circle){
     // this bounces off the bottom wall
     else if (circle.y > boardHeight){
         circle.y -= circle.speedY;
-        circle.speedX *= -1;
+        circle.speedY *= -1;
     }
 }
 
 // this redraws the circle's position on the screen
 function updateCircleOnScreen(circle){
-    maxCircles = 0;
+    maxCircles = i;
 
     // these lines redraw the circle's position
     $(circle.id).css('left', circle.x);

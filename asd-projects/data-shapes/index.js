@@ -69,7 +69,7 @@ $(document).ready(function () {
   // TODO 4-a: add a function that handles the good display type
   function handleGood(color, shape, repeat){
     setBackgroundWithSimple(color, shape, repeat);
-    animationDetails.displayType = 3;
+    animationDetails.displayType = 2;
   }
 
   // TODO 5-a: add a function that handles the bad display type
