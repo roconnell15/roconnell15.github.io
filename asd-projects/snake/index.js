@@ -50,7 +50,7 @@ function init() {
   snake.head = snake.body[0];
   
   // TODO 8: initialize the first apple
-
+  makeApple();
 
   // start update interval
   updateInterval = setInterval(update, 100);
@@ -99,7 +99,25 @@ function moveSnake() {
   HINT: The snake's head will need to move forward 1 square based on the value
   of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
-  
+  if (snake.head.direction === 'left') {
+    snake.head.column = snake.head.column - 1;
+  }
+  repositionSquare(snake.head);
+
+  if (snake.head.direction === 'right') {
+    snake.head.column = snake.head.column + 1;
+  }
+  repositionSquare(snake.head);
+
+  if (snake.head.direction === 'down') {
+    snake.head.row = snake.head.row + 1;
+  }
+  repositionSquare(snake.head);
+
+  if (snake.head.direction === 'up') {
+    snake.head.row = snake.head.row - 1;
+  }
+  repositionSquare(snake.head);
   
 }
 
@@ -114,10 +132,19 @@ function checkForNewDirection(event) {
   if (activeKey === KEY.LEFT) { 
     snake.head.direction = "left"; 
   }
+  else if (activeKey === KEY.RIGHT) { 
+    snake.head.direction = "right"; 
+  }
+  else if (activeKey === KEY.UP) { 
+    snake.head.direction = "up"; 
+  }
+  else if (activeKey === KEY.DOWN) { 
+    snake.head.direction = "down"; 
+  }
 
   // FILL IN THE REST
   
-  // console.log(snake.head.direction);     // uncomment me!
+  console.log(snake.head.direction);     // uncomment me!
 }
 
 function hasCollidedWithApple() {
@@ -127,7 +154,9 @@ function hasCollidedWithApple() {
   
   HINT: Both the apple and the snake's head are aware of their own row and column
   */
-  
+  if(snake.head.row === apple.row && snake.head.column === apple.column){
+    handleAppleCollision();
+  }
   return false;
 }
 
@@ -177,7 +206,19 @@ function hasHitWall() {
   
   HINT: What will the row and column of the snake's head be if this were the case?
   */
-  
+  if(snake.head.row === ROWS + 1){
+    return true
+  }
+  if(snake.head.row === -1){
+    return true
+  }
+
+  if(snake.head.column === COLUMNS + 1){
+    return true
+  }
+  if(snake.head.column === -1){
+    return true
+  }
   return false;
 }
 
