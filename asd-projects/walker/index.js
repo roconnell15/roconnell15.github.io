@@ -19,10 +19,10 @@ function runProgram(){
 
 
   // Game Item Objects
-        var positionX = 0;
-        var positionY = 0;
-        var speedX = 0;
-        var speedY = 0;
+  var positionX = 0;
+  var positionY = 0;
+  var speedX = 0;
+  var speedY = 0;
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -64,10 +64,10 @@ function runProgram(){
         speedY = 5;
       }
   }
-  function handleKeyUp(){
-    var speedX = 0;
-    var speedY = 0;
-  }
+    function handleKeyUp(){
+      speedX = 0;
+      speedY = 0;
+    }
 
 
 
