@@ -35,4 +35,5 @@ body {
 .apple {
   background-color: rgb(247, 0, 255);
   z-index: 1;
+  border-radius: 20px;
 }
