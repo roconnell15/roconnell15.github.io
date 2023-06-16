@@ -49,7 +49,8 @@ function applyFilter(filterFunction){
 
 
 // TODO 7: Create the applyFilterNoBackground function
-function applyFilterNoBackground(){
+//Keeps background grey at image[0][0]
+function applyFilterNoBackground(filterFunction){
   var backgroundColor = image[0][0];
   for(var x = 0; x < image.length; x++){
     for(var y = 0; y < image[x].length; y++){
