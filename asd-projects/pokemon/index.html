@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Pokemon</title>
+  <style>
+    #gallery {
+    display: none;
+    margin: 20px;
+    }
+
+    img {
+        max-height: 100px;
+    }
+  </style>
+</head>
+<body>
+    <div id="my-pokemon">
+        <h1> My Pokemon </h1>
+    </div>
+    <div id='gallery'>
+        <img id="image">
+        <h2 id='name'></h2>
+        <ul id="stats">
+            <li id="type"></li>
+            <li id="attack"></li>
+            <li id="defense"></li>
+        </ul>
+        
+    </div>
+<script>
+    /*
+1) refactor data into objects
+2) reduce repetition by making/using 
+a factory function
+3) refactor the catchPokemon definition
+and function calls such that it accepts 
+a Pokemon object as an argument/parameter
+*/ 
+
+// initialization
+var eevee = {
+    name: "eevee",
+    type: "Normal",
+    attack: 50,
+    defense: 45
+}
+
+var squirtle = {
+    name: "squirtle",
+    type: "Water",
+    attack: 50,
+    defense: 45
+}
+
+var bulbasaur = {
+    name: "bulbasaur",
+    type: "Grass",
+    attack: 50,
+    defense: 45
+}
+
+var gengar = {
+    name: "gengar",
+    type: "ghost",
+    attack: 80,
+    defense: 20
+}
+
+// core logic
+catchPokemon(squirtle);
+catchPokemon(eevee);
+catchPokemon(bulbasaur);
+catchPokemon(gengar);
+
+// helper function
+
+function catchPokemon(pokemon) {
+    // 1) make a button with the pokemon's name
+    var $button = $("<button>")
+        .appendTo("#my-pokemon")
+        .text(pokemon.name)
+        .on('click', showPokemon);
+    
+    // 2) figure out the image address based on the name
+    var imgSrc = "https://img.pokemondb.net/artwork/large/"+ pokemon.name +".jpg"; 
+    
+    // this function is created each time makePokemon is called
+    // all variable values at the time of creation (the context) are saved 
+    function showPokemon() {
+        // 3) construct
+        $("#image").attr('src', imgSrc);
+        $("#name").text(pokemon.name);
+        $("#type").text("type: " + pokemon.type)
+        $("#attack").text("attack: " + pokemon.attack)
+        $("#defense").text("defense: " + pokemon.defense)
+        $("#gallery").show();
+    }
+}
+
+</script>
+</body>
+</html>
