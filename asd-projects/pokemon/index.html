@@ -13,13 +13,13 @@
     }
 
     img {
-        max-height: 100px;
+        max-height: 200px;
     }
   </style>
 </head>
 <body>
     <div id="my-pokemon">
-        <h1> My Pokemon </h1>
+        <h1> My Pokedex </h1>
     </div>
     <div id='gallery'>
         <img id="image">
@@ -56,13 +56,6 @@ var squirtle = {
     defense: 45
 }
 
-var bulbasaur = {
-    name: "bulbasaur",
-    type: "Grass",
-    attack: 50,
-    defense: 45
-}
-
 var gengar = {
     name: "gengar",
     type: "ghost",
@@ -70,11 +63,26 @@ var gengar = {
     defense: 20
 }
 
+function Pokemon(name, type, attack, defense){
+    var pokemonInstance = {};
+    pokemonInstance.name = name;
+    pokemonInstance.type = type;
+    pokemonInstance.attack = attack;
+    pokemonInstance.defense = defense;
+    return pokemonInstance
+}
+
+var pokemon1 = Pokemon('bulbasaur', 'grass', 30, 40);
+var pokemon2 = Pokemon("ivysaur", "grass/poison", 40, 60);
+var pokemon3 = Pokemon("venusaur", "grass/poison", 50, 80);
+
 // core logic
+catchPokemon(gengar);
 catchPokemon(squirtle);
 catchPokemon(eevee);
-catchPokemon(bulbasaur);
-catchPokemon(gengar);
+catchPokemon(pokemon1);
+catchPokemon(pokemon2);
+catchPokemon(pokemon3);
 
 // helper function
 
