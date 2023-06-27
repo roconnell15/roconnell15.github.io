@@ -6,6 +6,7 @@
     <title>What time is it?</title>
 <!-- A WORK IN PROGRESS ON ROTATING BACKGROUND COLOR -->
     <script type="text/javascript">
+
         var colors = ['#760CE8', 
         '#4782B1', 
         '#E8890C', 
@@ -59,6 +60,8 @@
         };
 
         changeBackground();
+
+        
     </script>
     <style>
         body {
@@ -80,7 +83,7 @@
         }
     </style>
 </head>
-<body id="change" onload="changeBackground();">
+<body id="change">
     <div class="title-container">
         <h1>A Simple Digital Clock</h1>
         <h4>Coded in Javascript</h4>
@@ -90,7 +93,7 @@
         <h1 id="date-display"></h1>
     </div>
     <div>
-        <button type="menu" onClick="window.location.reload();">Change Color</button>
+        <button type="menu" onClick="changeBackground();">Change Color</button>
     </div>
     <script src="script.js"></script>
 </body>
