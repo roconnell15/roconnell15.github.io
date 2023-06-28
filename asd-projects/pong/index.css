@@ -1,21 +1,64 @@
 
 body {
-  background-color: darkgreen;
+  background-color: #5eafc7;
 }
 
 #board {
-  width: 440px;
-  height: 440px;
-  border: 1px solid white;
-  background-color: black;
+  top: 80px;
+  left: 60px;
+  width: 1760px;
+  height: 800px;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: rgb(102, 102, 102);
   position: relative;
 }
 
-#gameItem {
-  background-color: teal;
+#ball {
+  background-color: rgb(21, 255, 0);
   width: 50px;
   height: 50px;
   position: absolute;
-/*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
-/*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
+  border-radius: 50px;
+   left: 390px;   
+   top: 0px;    
+}
+
+.paddles {
+  background-color: rgb(255, 255, 255);
+  height: 330px;
+  width: 50px;
+  top: 255px;
+  position: absolute;
+  left: 20px;
+  visibility: hidden;
+  border-radius: 20px;
+}
+
+#paddle1 {
+  left: 20px;
+  visibility: visible
+}
+
+#paddle2 {
+  left: 1690px;
+  visibility: visible
+}
+
+.score {
+  font-family: 'Public Pixel', sans-serif;
+  color: white;
+  position: absolute;
+  top: 20px;
+}
+#scoreRight {
+  right: 20px;
+}
+
+h1 {
+  position:absolute;
+  top: 0px;
+  left: 45%;
+  color: white;
+  font-family: 'Public Pixel', sans-serif;
+  font-size: 45px;
 }

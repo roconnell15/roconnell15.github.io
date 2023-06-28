@@ -169,6 +169,20 @@
             }
          </style>
     </head>
+    <script>
+        var pass = "CHSlion";
+        getPass();
+
+        function getPass(){
+            var input = prompt("What is the password?");
+            if(input === pass){
+                console.log("Welcome")
+            }
+            else{
+                getPass();
+            }
+        }
+    </script>
     
     <body>
         <div id="all-contents">

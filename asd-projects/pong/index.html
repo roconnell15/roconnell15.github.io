@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>PONG</title>
     <!-- Load CSS files -->
     <link rel="stylesheet" type="text/css" href="index.css">
-    
+    <style>
+</style>
+
     <!-- Load JavaScript files -->
     <script src="jquery.min.js"></script>
     <script src="index.js"></script>
@@ -12,13 +14,16 @@
   
   <body>
     <div id='board'>
-      <div id = 'gameItem'>
-        <div id = 'rightPaddle'></div>
-        <div id = 'leftPaddle'></div>
-        <div id = 'ball'></div>
-        <div id = 'scoreOne'></div>
-        <div id = 'scoreTwo'></div>
-      </div>
+      
+      <div id='ball'></div>
+      <div class="paddles"></div>
+        <div class = "paddles" id="paddle1"></div>
+        <div class = "paddles" id="paddle2"></div>
     </div>
+    <div>
+    <p class="score" id="scoreLeft">Score: 0</p>
+    <p class="score" id="scoreRight">Score: 0</p>
+    </div>
+    <h1>PONG</h1>
   </body>
 </html>
