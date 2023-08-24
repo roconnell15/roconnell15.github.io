@@ -3,82 +3,87 @@
     <head>
         <title>O'Connell's Portfolio Page</title>
         <style type="text/css">
-            body {
-                background: rgb(74, 104, 202);
-                color: rgb(45, 45, 45);
-                padding: 10px;
-                font-family: arial;
-                font-size: 20px;
-            }
-            #all-contents {
-                max-width: fit-content;
-                margin: auto;
-            }
-            /* navigation menu */
-            nav {
-                background: rgb(41, 239, 74);
-                margin: 0 auto;
-                display: flex;
-                padding:10px;
-                border-radius: 10px;
-                border-color: black;
-                margin: 0 auto;
-                margin-bottom: 15px;
-                max-width: fit-content;
-                box-shadow: 6px 6px #0000004b;
-                width: fit-content;
-            }
-            h1 {
-                display: flex;
-                align-items: center;
-                color: rgb(43, 43, 43);
-                flex: 1;
-                margin: 10px;
-                font-style: oblique;
-                font-size: 40px;
-                padding: 10px;
-            }
-            #nav-ul {
-                list-style-image: none;
-            }
-            .nav-li {
-                display: inline-block;
-                padding: 5px;
-            }
-            .nav-a {
-                text-decoration: none;
-                color: rgb(0, 0, 0);
-                padding-right: 25px;
-            }
+        body {
+            background: rgb(74, 104, 202);
+            color: rgb(45, 45, 45);
+            padding: 10px;
+            font-family: arial;
+            font-size: 20px;
+        }
+        #all-contents {
+            max-width: fit-content;
+            margin: auto;
+        }
+
+        .ASDtitle{
+            position: relative;
+            left: -62px;
+        }
+        /* navigation menu */
+        nav {
+            background: rgb(41, 239, 74);
+            margin: 0 auto;
+            display: flex;
+            padding:10px;
+            border-radius: 10px;
+            border-color: black;
+            margin: 0 auto;
+            margin-bottom: 15px;
+            max-width: fit-content;
+            box-shadow: 6px 6px #0000004b;
+            width: fit-content;
+        }
+        h1 {
+            display: flex;
+            align-items: center;
+            color: rgb(43, 43, 43);
+            flex: 1;
+            margin: 10px;
+            font-style: oblique;
+            font-size: 40px;
+            padding: 10px;
+        }
+        #nav-ul {
+            list-style-image: none;
+        }
+        .nav-li {
+            display: inline-block;
+            padding: 5px;
+        }
+        .nav-a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            padding-right: 25px;
+        }
     
             /* main container area beneath menu */
-            main {
-                background: beige;
-                display: flex;
-                border-radius: 10px;
-                border-color: black;
-                max-width: 1000px;
-                justify-content: center;
-                box-shadow: 6px 6px #0000004b;
-            }
-            .ASD {
-                position: relative;
-                top: 10px;
-            }
-            a {
-                text-decoration: none;
-                color: rgb(0, 0, 0);
-                padding-right: 100px;
-            }
+        main {
+            background: beige;
+            display: flex;
+            border-radius: 10px;
+            border-color: black;
+            max-width: 1000px;
+            justify-content: center;
+            box-shadow: 6px 6px #0000004b;
+        }
+        .ASD {
+            position: relative;
+            top: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            padding-right: 100px;
+        }
          .content h1 {
             display: flex;
-                align-items: center;
-                color: rgb(43, 43, 43);
-                flex: 1;
-                margin: 0;
-                font-style: oblique;
-                font-size: 40px;
-                padding: 10px;
+            align-items: center;
+            color: rgb(43, 43, 43);
+            flex: 1;
+            margin: auto;
+            font-style: oblique;
+            font-size: 40px;
+            padding: 10px;
          }
          
          #portfolio {
@@ -88,14 +93,14 @@
          
          #portfolio li {
             transition: 150ms;
-             background: #fff;
-             padding: 10px;
-             border-radius: 10px;
-             margin-bottom: 10px;
-             margin-left: 20px;
-             margin-right: 20px;
-             box-shadow: 6px 5px #0000004b;
-             margin-bottom: 15px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            box-shadow: 6px 5px #0000004b;
+            margin-bottom: 15px;
          }
          
          #portfolio li:hover {
@@ -194,7 +199,7 @@
         </nav>
         <main>
         <div class="content">
-            <h2>Public Coding Projects</h2>
+            <h2>Fundamentals Coding Course Links</h2>
             <ul id="portfolio">
             <li><a href="projects/platformer/" target="_blank">Platformer : A cannon - dodging, collectible - grabbing adventure game for Mr. Robot.</a></li>
             <li><a href="projects/platformer-neo/index.html" target="_blank">Platformer 2: Mr. Robot returns in this new refined sequel.</a></li>
@@ -212,7 +217,7 @@
         </main>
         <main class="ASD">
         <div class="content">
-            <h2>ASD Coding Course Links - Summer 2023</h2>
+            <h2 class="ASDtitle">ASD Coding Course Links - Summer 2023</h2>
             <ul id="portfolio">
             <li><a href="asd-projects/data-shapes/index.html" target="_blank">Data Shapes</a></li>
             <li><a href="asd-projects/debugging-exercise/index.html" target="_blank">Debugging Exercise</a></li>
@@ -226,7 +231,8 @@
             <li><a href="jsbinstwo.html" target="_blank">Click this link to access all of the JS Bins used in our Advanced class.</a></li>
             </ul>
         </div>
-        </main class="ASD">
+        </main>
+        </div>
         <!-- Start slideshow creation for portfolio. -->
         
     <div class="slideshow-container">
