@@ -8,10 +8,13 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <style>
         #die {
-            height: 100px;
-            width: 100px;
+            height: 200px;
+            width: 200px;
             background-color: rgb(59, 235, 103); /* feel free to change this */
             position: relative;
+        }
+        div{
+            margin: auto;
         }
     </style>
 </head>
@@ -22,55 +25,58 @@
 </body>
 <script>
     function makeDot(x, y){
-            $('<div>')
-            .css("height", 15)
-            .css("width", 15)
-            .css("background-color", "black")
-            .css("position", "absolute")
-            .css('top', x-10)
-            .css('left', y-10)
-            .appendTo("#die");
-    }
-
-    function rollDie(dieID){
-        $('#die').empty();
-    
-    var randomNum = Math.ceil(Math.random() * 6)
-
-    if (randomNum === 1) {
-    makeDot(50, 50, die); // middle middle
-    }
-    else if (randomNum === 2) {
-        makeDot(25, 25, die); // top left
-        makeDot(75, 75, die); // bottom right
-    }
-    else if (randomNum === 3) {
-        makeDot(25, 25, die); // top left
-        makeDot(75, 75, die); // bottom right
-        makeDot(50, 50, die); // middle middle
-    }
-    else if (randomNum === 4) {
-        makeDot(75, 75, die); // bottom right
-        makeDot(25, 25, die); // top left
-        makeDot(25, 75, die); // bottom left
-        makeDot(75, 25, die); // top right
-    }
-    else if (randomNum === 5) {
-        makeDot(50, 50, die); // middle middle
-        makeDot(75, 75, die); // bottom right
-        makeDot(25, 25, die); // top left
-        makeDot(25, 75, die); // bottom left
-        makeDot(75, 25, die); // top right
-    }
-    else{
-        makeDot(50, 75, die); // middle right
-        makeDot(50, 25, die); // middle left
-        makeDot(75, 75, die); // bottom right
-        makeDot(25, 25, die); // top left
-        makeDot(25, 75, die); // bottom left
-        makeDot(75, 25, die); // top right
-    }
+  $('<div>')
+    .css("height", 30)
+    .css("width", 30)
+    .css("background-color", "black")
+    .css("position", "absolute")
+    .css('top', x+35)
+    .css('left', y+35)
+    .css('border-radius', 20)
+    .appendTo("#die");
 }
+
+function rollDie(dieID){
+  $('#die').empty();
+
+  var randomNum = Math.ceil(Math.random() * 6)
+//       Math.ceil(Math.random() * 6)
+
+  if (randomNum === 1) {
+    makeDot(50, 50, die); // middle middle
+  }
+  else if (randomNum === 2) {
+    makeDot(0, 0, die); // top left
+    makeDot(100, 100, die); // bottom right
+  }
+  else if (randomNum === 3) {
+    makeDot(0, 0, die); // top left
+    makeDot(100, 100, die); // bottom right
+    makeDot(50, 50, die); // middle middle
+  }
+  else if (randomNum === 4) {
+    makeDot(100, 100, die); // bottom right
+    makeDot(0, 0, die); // top left
+    makeDot(0, 100, die); // bottom left
+    makeDot(100, 0, die); // top right
+  }
+  else if (randomNum === 5) {
+    makeDot(50, 50, die); // middle middle
+    makeDot(100, 100, die); // bottom right
+    makeDot(0, 0, die); // top left
+    makeDot(0, 100, die); // bottom left
+    makeDot(100, 0, die); // top right
+  }
+  else{
+    makeDot(50, 100, die); // middle right
+    makeDot(50, 0, die); // middle left
+    makeDot(100, 100, die); // bottom right
+    makeDot(0, 0, die); // top left
+    makeDot(0, 100, die); // bottom left
+    makeDot(100, 0, die); // top right
+  }
+}
+
 // Register an event handler function to be called in response to an "event"
 $("#die").on("click", rollDie);
 </script>
