@@ -7,6 +7,9 @@
     <title>DICE APP</title>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <style>
+      body{
+        padding-top: 10%;
+      }
         #die {
             height: 200px;
             width: 200px;
@@ -17,6 +20,64 @@
             margin: auto;
         }
     </style>
+    <script type="text/javascript">
+
+          var colors = ['#760CE8', 
+          '#4782B1', 
+          '#E8890C', 
+          '#bd89ca', 
+          '#000000', 
+          '#d1b66b', 
+          '#6bd1c5', 
+          '#a4d94a', 
+          '#d94a88', 
+          '#5e0011', 
+          '#506652', 
+          '#545453', 
+          '#065535', 
+          '#4b3832', 
+          '#be9b7b',
+          '#ff6666',
+          '#455b55',
+          '#98ca82',
+          '#76a5af',
+          '#8c2601',
+          '#d0ff00',
+          '#25c1bf',
+          '#0e1a40',
+          '#ffb400',
+          '#99aec9',
+          '#997555',
+          '#1f8d2e', 
+          '#0000FF', 
+          '#000FFF', 
+          '#FF0000', 
+          '#0c343d', 
+          '#741b47', 
+          '#b4a7d6', 
+          '#59bdac', 
+          '#d4aca5', 
+          '#907272',
+          '#4db2ff',
+          '#70dba9',
+          '#d2ff8a',
+          '#ff33da',
+          '#ff5972',
+          '#ffbc57',
+          '#05c1ff',
+          '#77a196',
+          '#ae8bcc',
+          '#362c16'
+          ];
+  
+          var changeBackground = function() {
+              document.body.style.background = colors[Math.floor(Math.random()*colors.length)];
+          };
+  
+          
+  
+          
+  </script>
 </head>
 <body>
     <div id = "die">
@@ -79,5 +140,6 @@ function rollDie(dieID){
 
 // Register an event handler function to be called in response to an "event"
 $("#die").on("click", rollDie);
+$("#die").on("click", changeBackground);
 </script>
 </html>
