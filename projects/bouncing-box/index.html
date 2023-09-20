@@ -28,6 +28,8 @@
 		}
 		.board{
 			height: 100vh;
+			width: 100%;
+			border: solid white 10px;
 		}
 		h1 {
 			color: white;
@@ -87,7 +89,7 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			var positionX = 900;
+			var positionX = 300;
 			var points = 0;
 			var speed = 0;
 
@@ -119,7 +121,7 @@
 			function handleBoxClick() {
 				points += 1;
 				positionX = 0;
-				speed += 5;
+				speed += 10;
 				changeBoxText(points);
 				console.log("hello");
 
