@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 // this section initializes some variables that will be used throughout the program
 var doubleMaxSpeed = 10;
-var maxCircles = 30;
+var maxCircles = 50;
 var $board = $('#board');
 var boardWidth = $($board).width();
 var boardHeight = $($board).height();
@@ -121,23 +121,33 @@ function bounceCircle(circle){
     if (circle.x < 0){
         circle.x -= circle.speedX;
         circle.speedX *= -1;
+        maxCircles++;
+        makeCircle()
     }
     // this bounces off the right wall
     else if (circle.x > boardWidth){
         circle.x -= circle.speedX;
         circle.speedX *= -1;
+        maxCircles++;
+        makeCircle()
     }
     // this bounces off the top wall
     if (circle.y < 0){
         circle.y -= circle.speedY;
         circle.speedY *= -1;
+        maxCircles++;
+        makeCircle()
     }
     // this bounces off the bottom wall
     else if (circle.y > boardHeight){
         circle.y -= circle.speedY;
         circle.speedY *= -1;
+        maxCircles++;
+        makeCircle()
     }
 }
+
+
 
 // this redraws the circle's position on the screen
 function updateCircleOnScreen(circle){
