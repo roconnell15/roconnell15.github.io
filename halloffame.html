@@ -1,16 +1,21 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>HALL OF FAME</title>
+        <link rel="icon" type="image/x-icon" href="https://media.tenor.com/pXEDrZV2s4QAAAAi/star-spinning.gif">
+        <title>WALL OF FAME</title>
         <style>
             body {
-                background: rgb(0, 0, 0);
+                background-image: url(https://wallpaper.dog/large/974333.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
                 color: rgb(45, 45, 45);
                 padding: 10px;
                 font-family: arial;
                 font-size: 20px;
                 margin-left: 20%;
                 margin-right: 20%;
+                margin-bottom: 100px;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             }
             #all-contents {
             max-width: fit-content;
@@ -18,7 +23,7 @@
             }
             /* navigation menu */
             nav {
-                background: rgb(105, 1, 1);
+                background: rgba(116, 62, 218, 0.658);
                margin: 0 auto;
                 display: flex;
                 padding:10px;
@@ -28,17 +33,19 @@
                 margin-bottom: 15px;
                 box-shadow: 6px 6px #0000004b;
                 width: fit-content;
+                max-height: 400px;
             }
             #heading {
                 display: contents;
                 align-items: center;
-                color: rgb(255, 185, 55);
+                color: rgb(255, 225, 55);
                 flex: 1;
                 margin: auto;
-                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-                font-size: 50px;
-                padding: 10%;
+                font-family:Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 40px;
+                padding: 20%;
                 letter-spacing: 1.5px;
+                text-shadow: 5px 3px rgba(0, 0, 0, 0.514);
             }
     
             /* main container area beneath menu */
@@ -79,14 +86,19 @@
              box-shadow: 6px 5px #0000004b;
              margin-bottom: 15px;
              transition: 150ms;
-             width: 60%;
+             width: 80%;
+             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+             font-weight: 600;
+             font-size: 25px;
+             size: 100%;
              
          }
          
          #portfolio li:hover {
-             background: rgb(0, 0, 0);
-             box-shadow: 10px 8px #0000004b;
+             background: rgba(0, 0, 0, 0.288);
+             box-shadow: 10px 8px #0000009d;
              color: white;
+             size: 110%;
          } 
          
          #portfolio a {
@@ -100,28 +112,62 @@
             padding: 10px;
             box-shadow: 6px 5px #0000004b;
             text-align: center;
+            font-weight: 500;
+         }
+         #star{
+            width: 80px;
+            height: 80px;
+            margin: auto;
+            padding: 30px;
          }
          </style>
     </head>
+
+    <script>
+        var pass = "CHSlion";
+        getPass();
+
+        function getPass(){
+            var input = prompt("What is the password?");
+            if(input === pass){
+                console.log("Welcome")
+            }
+            else{
+                getPass();
+            }
+        }
+    </script>
     
     <body>
         <div id="all-contents">
+            
             <nav>
-                <a href="https://roconnell15.github.io" id="heading"><h1 >WELCOME TO THE HALL OF FAME</a></h1>
-                
+                <a href="https://roconnell15.github.io" id="heading">
+                    <img id="star" src="https://media.tenor.com/pXEDrZV2s4QAAAAi/star-spinning.gif">
+                    <h1>WALL OF FAME</h1>
+                    <img id="star" src="https://media.tenor.com/pXEDrZV2s4QAAAAi/star-spinning.gif">
+                </a>
             </nav>
+
             <div class="content">
-                <h2>This is a collection of past student websites built to showcase some of the work created in room 402!</h2>
+                <h2>This is a collection of student websites built to showcase some of the work created in room 402!</h2>
                 <ul id="portfolio">
                 <a href="https://aidenmel.github.io/" target="_blank"><li>Aiden Melton - Fundamentals 2023</li></a>
+                <a href="https://jackson-canfield.github.io/"><li>Jackson Canfield - Fundamentals 2022 - Advanced 2023</li></a>
                 <a href="https://evanduhon.github.io/" target="_blank"><li>Evan Duhon - Fundamentals 2023</li></a>
+                <a href="https://sfroeba06.github.io/"><li>Sean Froeba - Fundamentals 2023</li></a>
                 <a href="https://anboudreaux.github.io/" target="_blank"><li>Annabelle Boudreaux - Fundamentals 2023</li></a>
                 <a href="https://micruth.github.io/" target="_blank"><li>Micah Ruth - Fundamentals 2023</li></a>
                 <a href="https://aclva.github.io/" target="_blank"><li>Aleta Vang - Fundamentals 2023</li></a>
                 <a href="https://augustcarazothompson.github.io/" target="_blank"><li>August Carazo Thompson - Fundamentals 2022 - Advanced 2023</li></a>
                 <a href="https://eshoultz9.github.io/" target="_blank"><li>Evan Shoultz - Fundamentals 2022 - Advanced 2023</li></a>
-                <a href="https://pepsinitro.github.io/" target="_blank"><li>Brennan Sharp (AKA PepsiNitro) - Fundamentals 2022 - Advanced 2023</li></a>
+                <a href="https://andersontorrance.github.io/"><li>Torrance Anderson - Fundamentals 2022 - Advanced 2023</li></a>
+                <a href="https://pepsinitro.github.io/" target="_blank"><li>PepsiNitro - Fundamentals 2022 - Advanced 2023</li></a>
                 <a href="https://bradyg10.github.io/" target="_blank"><li>Brady Graham - Fundamentals 2022 - Advanced 2023</li></a>
+                <a href="https://jordand61.github.io/"><li>Jordan Dedon - Fundamentals 2022 - Advanced 2023</li></a>
+                <a href="https://nathanielcoleman0.github.io/"><li>Nate Coleman - Fundamentals 2022 - Advanced 2023</li></a>
+
+                
 
                 <!-- <li><a href=""> </a></li> -->
                 </ul>
