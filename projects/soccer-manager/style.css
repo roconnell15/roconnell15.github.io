@@ -125,63 +125,63 @@ body{
 }
 .home-team .player.two{
   top: 890px;
-  left:100px;
+  left:110px;
 }
 .home-team .player.two:after{
   content:"2";
 }
 .home-team .player.three{
   top:890px;
-  left:160px;
+  left:180px;
 }
 .home-team .player.three:after{
   content:"3";
 }
 .home-team .player.four{
     top: 890px;
-  left:220px;
+  left:250px;
 }
 .home-team .player.four:after{
   content:"4";
 }
 .home-team .player.five{
     top: 890px;
-  left:280px;
+  left:320px;
 }
 .home-team .player.five:after{
   content:"5";
 }
 .home-team .player.six{
     top: 890px;
-    left:340px;
+    left:390px;
 }
 .home-team .player.six:after{
   content:"6";
 }
 .home-team .player.seven{
     top: 890px;
-    left:400px;
+    left:460px;
 }
 .home-team .player.seven:after{
   content:"7";
 }
 .home-team .player.eight{
     top: 890px;
-    left:460px;
+    left:530px;
 }
 .home-team .player.eight:after{
   content:"8";
 }
 .home-team .player.nine{
     top: 890px;
-    left:520px;
+    left:600px;
 }
 .home-team .player.nine:after{
   content:"9";
 }
 .home-team .player.ten{
     top: 890px;
-    left:580px;
+    left:670px;
 }
 .home-team .player.ten:after{
   content:"10";
@@ -189,7 +189,7 @@ body{
 }
 .home-team .player.eleven{
     top: 890px;
-    left:640px;
+    left:740px;
 }
 .home-team .player.eleven:after{
   content:"11";
