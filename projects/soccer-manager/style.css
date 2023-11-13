@@ -9,6 +9,7 @@ body{
   border-radius: 20px;
   text-align: center;
   margin: 20px;
+  border: 8px solid white;
 }
 .pitch{
     background-color: #238729;
