@@ -55,7 +55,7 @@ body{
     position: absolute;
     height: 360px;
     width: 190px;
-    top: 260px;
+    top: 270px;
     border: 6px solid white;
 }
 
@@ -73,7 +73,7 @@ body{
     position: absolute;
     height: 150px;
     width: 55px;
-    top: 90px;
+    top: 100px;
     border: 6px solid white;
     content:"";
 }

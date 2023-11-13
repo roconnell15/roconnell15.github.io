@@ -14,7 +14,7 @@ function dragElement(elmnt) {
     pos3 = 0,
     pos4 = 0;
   elmnt.onmousedown = dragMouseDown;
-  elmnt.ontouchend = dragMouseDown;
+  elmnt.ontouchstart = dragMouseDown;
 
   function dragMouseDown(e) {
     e = e || window.event;
@@ -26,7 +26,7 @@ function dragElement(elmnt) {
     document.ontouchend = closeDragElement;
     // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
-    document.ontouchend = elementDrag;
+    document.ontouchmove = elementDrag;
   }
   function elementDrag(e) {
     e = e || window.event;
@@ -46,7 +46,7 @@ function dragElement(elmnt) {
     document.onmousemove = null;
 
     document.ontouchend = null;
-    document.ontouchend = null;
+    document.ontouchmove = null;
   }
 }
 
