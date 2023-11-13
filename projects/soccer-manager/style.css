@@ -10,6 +10,8 @@ body{
   text-align: center;
   margin: 20px;
   border: 8px solid white;
+  max-width: 500px;
+  padding: 10px;
 }
 .pitch{
     background-color: #238729;
