@@ -1,0 +1,274 @@
+body{
+    background-color: black;
+}
+
+.pitch{
+    background-color: #238729;
+    width: 1090px;
+    height: 880px;
+    position: relative;
+}
+.pitch:after{
+  content: "";
+  border-left: 6px solid white;
+  position: absolute;
+  top :20px;
+  left: 50%;
+  display:block;
+  height:850px;
+}
+
+.pitch:before{
+  content: "";
+  border: 6px solid white;
+  position: absolute;
+  top :20px;
+  left :20px;
+  display:block;
+  width: 1050px;
+  height: 840px;
+}
+
+.center-circle{
+    position: absolute;
+    top: 250px;
+    left: 345px;
+    width: 400px;
+    height: 400px;
+    border: 6px solid white;
+    border-radius: 50%;
+}
+
+
+.penalty-area{
+    position: absolute;
+    height: 360px;
+    width: 190px;
+    top: 260px;
+    border: 6px solid white;
+}
+
+.left .penalty-area{
+    left: 30px;
+    border-left: 0;
+}
+
+.right .penalty-area{
+    right: 19px;
+    border-right: 0;
+}
+
+.penalty-area:before{
+    position: absolute;
+    height: 150px;
+    width: 55px;
+    top: 90px;
+    border: 6px solid white;
+    content:"";
+}
+.left .penalty-area:before{
+   left:0px;
+  border-left:0;
+}
+.right .penalty-area:before{
+   right:0px;
+  border-right:0;
+}
+
+
+.left .penalty-area:after{
+    right:15px;
+}
+.right .penalty-area:after{
+    left:15px;
+}
+
+.player{
+  position:absolute;
+  border-radius:50%;
+  width:55px;
+  height: 55px;
+}
+.player:after{
+  font-size:30px;
+  display: flex;
+  position: absolute;
+  left: 25px;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+}
+.home-team .player{
+  background:rgb(24, 18, 82);
+  color: rgb(177, 156, 42);
+  
+}
+.home-team .player.one{
+  top:890px;
+  left:40px;
+  background:yellow;
+  color: black;
+}
+.home-team .player.one:after{
+  content:"1";
+}
+.home-team .player.two{
+  top: 890px;
+  left:100px;
+}
+.home-team .player.two:after{
+  content:"2";
+}
+.home-team .player.three{
+  top:890px;
+  left:160px;
+}
+.home-team .player.three:after{
+  content:"3";
+}
+.home-team .player.four{
+    top: 890px;
+  left:220px;
+}
+.home-team .player.four:after{
+  content:"4";
+}
+.home-team .player.five{
+    top: 890px;
+  left:280px;
+}
+.home-team .player.five:after{
+  content:"5";
+}
+.home-team .player.six{
+    top: 890px;
+    left:340px;
+}
+.home-team .player.six:after{
+  content:"6";
+}
+.home-team .player.seven{
+    top: 890px;
+    left:400px;
+}
+.home-team .player.seven:after{
+  content:"7";
+}
+.home-team .player.eight{
+    top: 890px;
+    left:460px;
+}
+.home-team .player.eight:after{
+  content:"8";
+}
+.home-team .player.nine{
+    top: 890px;
+    left:520px;
+}
+.home-team .player.nine:after{
+  content:"9";
+}
+.home-team .player.ten{
+    top: 890px;
+    left:580px;
+}
+.home-team .player.ten:after{
+  content:"10";
+  left:0px;
+}
+.home-team .player.eleven{
+    top: 890px;
+    left:640px;
+}
+.home-team .player.eleven:after{
+  content:"11";
+  left:0px;
+}
+.visitor-team .player{
+  background:red;
+}
+.visitor-team .player:after{
+  color:white;
+}
+.visitor-team .player.one{
+  top:190px;
+  right:20px;
+  background:cyan;
+}
+.visitor-team .player.one:after{
+  content:"1";
+  color:red;
+}
+.visitor-team .player.two{
+  top:310px;
+  right:80px;
+}
+.visitor-team .player.two:after{
+  content:"2";
+}
+.visitor-team .player.three{
+  top:60px;
+  right:80px;
+}
+.visitor-team .player.three:after{
+  content:"3";
+}
+.visitor-team .player.four{
+  top:145px;
+  right:80px;
+}
+.visitor-team .player.four:after{
+  content:"4";
+}
+.visitor-team .player.five{
+  top:225px;
+  right:80px;
+}
+.visitor-team .player.five:after{
+  content:"5";
+}
+.visitor-team .player.six{
+  top:310px;
+  right:160px;
+}
+.visitor-team .player.six:after{
+  content:"6";
+}
+.visitor-team .player.seven{
+  top:60px;
+  right:160px;
+}
+.visitor-team .player.seven:after{
+  content:"7";
+}
+.visitor-team .player.eight{
+  top:145px;
+  right:160px;
+}
+.visitor-team .player.eight:after{
+  content:"8";
+}
+.visitor-team .player.nine{
+  top:225px;
+  right:160px;
+}
+.visitor-team .player.nine:after{
+  content:"9";
+}
+.visitor-team .player.ten{
+  top:145px;
+  right:240px;
+}
+.visitor-team .player.ten:after{
+  content:"10";
+  left:0px;
+}
+.visitor-team .player.eleven{
+  top:225px;
+  right:240px;
+}
+.visitor-team .player.eleven:after{
+  content:"11";
+  left:0px;
+}
+
