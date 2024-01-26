@@ -15,7 +15,7 @@ function displayClock() {
   const seconds = addLeadingZero(today.getSeconds());
 
   const timeDisplay = document.getElementById('time-display');
-  timeDisplay.textContent = `${standardHours}:${minutes}:${seconds} ${militaryHours > 12 ? 'PM' : 'AM'}`
+  timeDisplay.textContent = `${standardHours}:${minutes}:${seconds}:${militaryHours > 12 ? 'PM' : 'AM'}`
 }
 
 function addLeadingZero(time) {

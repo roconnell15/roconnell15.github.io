@@ -61,6 +61,8 @@
 
         setInterval(changeBackground, 60000);
 
+
+
         
     </script>
     <style>
@@ -96,6 +98,18 @@
     <div>
         <button type="menu" onClick="changeBackground();">Change Color</button>
     </div>
-    <script src="script.js"></script>
+    <script src="script.js" src="https://code.jquery.com/jquery-3.1.0.js">
+        var KEYS = {
+            "SPACE": 13,
+        }
+
+        $(document).on('keydown', handleKeyDown);
+
+        function handleKeyDown(event){ 
+            if(event.which === KEYS.SPACE){
+                changeBackground();
+            };
+        };
+    </script>
 </body>
 </html>
