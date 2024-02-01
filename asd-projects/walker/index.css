@@ -20,3 +20,13 @@ body {
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
 }
+
+#runner {
+  background-color: red;
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  border-radius: 50px;
+  left: 700px;   
+  top: 700px;   
+}

@@ -14,7 +14,11 @@ function runProgram(){
     "LEFT": 37,
     "RIGHT": 39,
     "UP": 38,
-    "DOWN": 40
+    "DOWN": 40,
+    "W": 87,
+    "A": 65,
+    "S": 83,
+    "D": 68,
   }
 
   var boardWidth = 700;
@@ -29,10 +33,19 @@ var walker = {
   "speedY" : 0,
 }
 
+var runner = {
+  "positionX" : 700,
+  "positionY" : 700,
+  "speedX" : 0,
+  "speedY" : 0,
+}
+
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
-  $(document).on('keyup', handleKeyUp)
+  $(document).on('keydown', handleKeyDownRun); 
+  $(document).on('keyup', handleKeyUp);
+  $(document).on('keyup', handleKeyUpRun);
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -45,6 +58,8 @@ var walker = {
   function newFrame() {
     repositionGameItem();
     redrawGameItem();
+    repositionGameItemRun();
+    redrawGameItemRun();
     wallCollision();
   }
   
@@ -52,6 +67,7 @@ var walker = {
   Called in response to events.
   */
   function handleKeyDown(event) {
+    //Start Walker
       if(event.which === KEYS.UP){
         console.log("UP PRESSED")
         walker.speedY = -5;
@@ -72,10 +88,38 @@ var walker = {
         walker.speedY = 5;
         $("#walker").css("background-color", "green")
       }
+
   }
+
+function handleKeyDownRun(event){        //Start Runner
+        if(event.which === KEYS.W){
+          console.log("UP PRESSED")
+          runner.speedY = -8;
+          $("#runner").css("background-color", "red")
+        }
+        if(event.which === KEYS.A){
+          runner.speedX = -8;
+          console.log("LEFT PRESSED")
+          $("#runner").css("background-color", "red")
+        }
+        if(event.which === KEYS.D){
+          console.log("RIGHT PRESSED")
+          runner.speedX = 8;
+          $("#runner").css("background-color", "red")
+        }
+        if(event.which === KEYS.S){
+          console.log("DOWN PRESSED")
+          runner.speedY = 8;
+          $("#runner").css("background-color", "red")
+        }
+      }
     function handleKeyUp(){
       walker.speedX = 0;
       walker.speedY = 0;
+    }
+    function handleKeyUpRun(){
+      runner.speedX = 0;
+      runner.speedY = 0;
     }
 
 
@@ -86,6 +130,18 @@ var walker = {
   function repositionGameItem(){
     walker.positionX += walker.speedX;
     walker.positionY += walker.speedY;
+  }
+
+  function repositionGameItemRun(){
+    runner.positionX += runner.speedX;
+    runner.positionY += runner.speedY;
+  }
+
+  function redrawGameItemRun(){
+    $("#runner").css("left", runner.positionX);
+    $("#runner").css("right", runner.positionX);
+    $("#runner").css("top", runner.positionY);
+    $("#runner").css("bottom", runner.positionY);
   }
 
   function redrawGameItem(){
