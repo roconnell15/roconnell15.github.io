@@ -17,6 +17,9 @@ function runProgram(){
     "DOWN": 40
   }
 
+  var boardWidth = 700;
+  var boardHeight = 700;
+
 
   // Game Item Objects
 var walker = {   
@@ -42,7 +45,7 @@ var walker = {
   function newFrame() {
     repositionGameItem();
     redrawGameItem();
-
+    wallCollision();
   }
   
   /* 
@@ -52,18 +55,22 @@ var walker = {
       if(event.which === KEYS.UP){
         console.log("UP PRESSED")
         walker.speedY = -5;
+        $("#walker").css("background-color", "green")
       }
       if(event.which === KEYS.LEFT){
         walker.speedX = -5;
         console.log("LEFT PRESSED")
+        $("#walker").css("background-color", "green")
       }
       if(event.which === KEYS.RIGHT){
         console.log("RIGHT PRESSED")
         walker.speedX = 5;
+        $("#walker").css("background-color", "green")
       }
       if(event.which === KEYS.DOWN){
         console.log("DOWN PRESSED")
         walker.speedY = 5;
+        $("#walker").css("background-color", "green")
       }
   }
     function handleKeyUp(){
@@ -86,6 +93,25 @@ var walker = {
     $("#walker").css("right", walker.positionX);
     $("#walker").css("top", walker.positionY);
     $("#walker").css("bottom", walker.positionY);
+  }
+
+  function wallCollision(){
+    if(walker.positionX < 0){
+      walker.positionX = 0;
+      $("#walker").css("background-color", "white")
+    }
+    if(walker.positionY < 0){
+      walker.positionY = 0;
+      $("#walker").css("background-color", "white")
+    }
+    if(walker.positionX > boardWidth){
+      walker.positionX = boardWidth;
+      $("#walker").css("background-color", "white")
+    }
+    if(walker.positionY > boardHeight){
+      walker.positionY = boardHeight;
+      $("#walker").css("background-color", "white")
+    }
   }
   
   function endGame() {
