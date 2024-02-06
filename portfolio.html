@@ -115,7 +115,42 @@
          h2 {
             margin-left: 10px;
          }
+
+         .crossword {
+                background: beige;
+                width: fit-content;
+                border-radius: 10px;
+                padding: 2px;
+                margin-top: 20px;
+                position: absolute;
+                left: 170px;
+                top: 200px;
+                transform: rotate(30deg);
+                font-family: arial;
+                
+            }
         
+
+        .crossword {
+            transition: 150ms;
+            box-shadow: 6px 5px #0000004b;
+            margin-bottom: 15px;
+            background: beige;
+            width: fit-content;
+            border-radius: 10px;
+            padding: 2px;
+            margin-top: 20px;
+            position: absolute;
+            left: 100px;
+            top: 200px;
+            transform: rotate(30deg);
+            font-family: arial;
+         }
+         
+         .crossword:hover {
+             background: rgb(80, 229, 255);
+             box-shadow: 10px 8px #0000004b;
+         } 
          .slideshow-container {
             max-width: 1000px;
             position: center;
@@ -197,6 +232,9 @@
                 <li class="nav-li"><a class="nav-a" href="video.html">Videos</a></li>
             </ul>
         </nav>
+        <a href="crossword.html"><div class="crossword">
+            <p>Click here to play the crossword!</p>
+        </div></a>
         <main>
         <div class="content">
             <h2>Fundamentals Coding Course Links</h2>

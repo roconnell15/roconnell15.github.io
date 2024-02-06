@@ -21,8 +21,8 @@ function runProgram(){
     "D": 68,
   }
 
-  var boardWidth = 700;
-  var boardHeight = 700;
+  var boardWidth = $('#board').width() - 100;
+  var boardHeight = $('#board').height() - 100;
 
 
   // Game Item Objects
@@ -154,19 +154,19 @@ function handleKeyDownRun(event){        //Start Runner
   function wallCollision(){
     if(walker.positionX < 0){
       walker.positionX = 0;
-      $("#walker").css("background-color", "white")
+      $("#walker").css("background-color", "white") + 100;
     }
     if(walker.positionY < 0){
       walker.positionY = 0;
-      $("#walker").css("background-color", "white")
+      $("#walker").css("background-color", "white") + 100;
     }
     if(walker.positionX > boardWidth){
       walker.positionX = boardWidth;
-      $("#walker").css("background-color", "white")
+      $("#walker").css("background-color", "white") - 100;
     }
     if(walker.positionY > boardHeight){
       walker.positionY = boardHeight;
-      $("#walker").css("background-color", "white")
+      $("#walker").css("background-color", "white") - 100;
     }
   }
   
