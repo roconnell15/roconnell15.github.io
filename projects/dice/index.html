@@ -9,12 +9,20 @@
     <style>
       body{
         padding-top: 10%;
+        background-color: black;
       }
         #die {
             height: 200px;
             width: 200px;
             background-color: rgb(59, 235, 103); /* feel free to change this */
             position: relative;
+        }
+        #secondDie {
+            height: 200px;
+            width: 200px;
+            background-color: rgb(59, 235, 103); /* feel free to change this */
+            position: relative;
+            margin-top: 10%;
         }
         div{
             margin: auto;
@@ -83,6 +91,9 @@
     <div id = "die">
 
     </div>
+    <div id = 'secondDie'>
+
+    </div>
 </body>
 <script>
     function makeDot(x, y){
@@ -97,12 +108,25 @@
     .appendTo("#die");
 }
 
+function makeDotTwo(x, y){
+  $('<div>')
+    .css("height", 30)
+    .css("width", 30)
+    .css("background-color", "black")
+    .css("position", "absolute")
+    .css('top', x+35)
+    .css('left', y+35)
+    .css('border-radius', 20)
+    .appendTo("#secondDie");
+}
+
 function rollDie(dieID){
   $('#die').empty();
+  
 
   var randomNum = Math.ceil(Math.random() * 6)
 //       Math.ceil(Math.random() * 6)
-
+//Make Dots for first dice
   if (randomNum === 1) {
     makeDot(50, 50, die); // middle middle
   }
@@ -136,10 +160,55 @@ function rollDie(dieID){
     makeDot(0, 100, die); // bottom left
     makeDot(100, 0, die); // top right
   }
+
+}
+
+function rollDieTwo(dieID){
+$('#secondDie').empty();
+
+  //Make dots for second dice
+var randomNumTwo = Math.ceil(Math.random() * 6)
+
+if (randomNumTwo === 1) {
+  makeDotTwo(50, 50, die); // middle middle
+}
+else if (randomNumTwo === 2) {
+  makeDotTwo(0, 0, die); // top left
+  makeDotTwo(100, 100, die); // bottom right
+}
+else if (randomNumTwo === 3) {
+  makeDotTwo(0, 0, die); // top left
+  makeDotTwo(100, 100, die); // bottom right
+  makeDotTwo(50, 50, die); // middle middle
+}
+else if (randomNumTwo === 4) {
+  makeDotTwo(100, 100, die); // bottom right
+  makeDotTwo(0, 0, die); // top left
+  makeDotTwo(0, 100, die); // bottom left
+  makeDotTwo(100, 0, die); // top right
+}
+else if (randomNumTwo === 5) {
+  makeDotTwo(50, 50, die); // middle middle
+  makeDotTwo(100, 100, die); // bottom right
+  makeDotTwo(0, 0, die); // top left
+  makeDotTwo(0, 100, die); // bottom left
+  makeDotTwo(100, 0, die); // top right
+}
+else{
+  makeDotTwo(50, 100, die); // middle right
+  makeDotTwo(50, 0, die); // middle left
+  makeDotTwo(100, 100, die); // bottom right
+  makeDotTwo(0, 0, die); // top left
+  makeDotTwo(0, 100, die); // bottom left
+  makeDotTwo(100, 0, die); // top right
+}
 }
 
 // Register an event handler function to be called in response to an "event"
 $("#die").on("click", rollDie);
 $("#die").on("click", changeBackground);
+
+$("#secondDie").on("click", rollDieTwo);
+
 </script>
 </html>
