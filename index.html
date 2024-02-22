@@ -240,8 +240,20 @@
                 <h3>Thanks for checking it out!</h3>
                 <p>For a deeper look into the code of the projects posted <a id="github" href="https://github.com/roconnell15/roconnell15.github.io" target="_blank">click here</a> to visit my repository!</p>
                 <p>For more student work, <a href="halloffame.html">click here</a> to access a list of some of the best student made pages!</p>
+                <p>The number of visitors is : <span id="cntr">0</span></p>
             </div>
         </article>
+
+        <script>
+            function counter_fn() {
+              var counter = document.getElementById("cntr");
+              var count = 0;
+              count = parseInt(counter.innerHTML);
+              count = count + 1;
+              counter.innerHTML = count;
+            }
+            window.onload = counter_fn;
+          </script>
                 <!-- Start slideshow creation for portfolio. -->
         
     <div class="slideshow-container">
