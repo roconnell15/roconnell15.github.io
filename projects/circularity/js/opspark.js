@@ -50,7 +50,7 @@
         
         //_app.stage.addChild(draw.rect(canvas.width, canvas.height, null, '#4F5661', 1));
         _app.stage.addChild(_app.view);
-        createjs.Ticker.setFPS(60);
+        createjs.Ticker.setFPS(120);
         createjs.Ticker.on('tick', _app.update);
 
         return _app;

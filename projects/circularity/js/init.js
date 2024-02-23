@@ -22,6 +22,9 @@ var init = function (window) {
         // TODO 1 : Declare and initialize our variables
         var circle;
         var circles = [];
+        var maxCircles = Math.ceil(Math.random() * 250);
+
+        console.log(maxCircles)
 
         // TODO 2 : Create a function that draws a circle 
         function drawCircle() {
@@ -40,7 +43,7 @@ var init = function (window) {
         // drawCircle();
         // drawCircle();
 
-        for (var i = 0; i < 70; i++) {
+        for (var i = 0; i < maxCircles; i++) {
             drawCircle()
         }
 
