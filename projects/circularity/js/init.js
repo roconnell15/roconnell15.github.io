@@ -22,7 +22,7 @@ var init = function (window) {
         // TODO 1 : Declare and initialize our variables
         var circle;
         var circles = [];
-        var maxCircles = Math.ceil(Math.random() * 250);
+        var maxCircles = prompt("Enter the number of desired circles.");
 
         console.log(maxCircles)
 
