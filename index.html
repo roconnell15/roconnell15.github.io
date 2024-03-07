@@ -170,6 +170,13 @@
             from {opacity: .4}
             to {opacity: 1}
             }
+
+            .website-counter {
+                font-size: 40px;
+                color: rgb(0, 0, 0);
+                padding-left: 45%;
+                font-weight: 540;
+             }
          </style>
     </head>
     <!-- <script>
@@ -240,19 +247,32 @@
                 <h3>Thanks for checking it out!</h3>
                 <p>For a deeper look into the code of the projects posted <a id="github" href="https://github.com/roconnell15/roconnell15.github.io" target="_blank">click here</a> to visit my repository!</p>
                 <p>For more student work, <a href="halloffame.html">click here</a> to access a list of some of the best student made pages!</p>
-                <p>The number of visitors is : <span id="cntr">0</span></p>
+                <p>The current number of total visits is: <div class="website-counter"></div></p>
+                <!-- <button id="reset">Reset</button> -->
             </div>
-        </article>
 
+        </article>
         <script>
-            function counter_fn() {
-              var counter = document.getElementById("cntr");
-              var count = 0;
-              count = parseInt(counter.innerHTML);
-              count = count + 1;
-              counter.innerHTML = count;
+            var counterContainer = document.querySelector(".website-counter");
+            var resetButton = document.querySelector("#reset");
+            var visitCount = localStorage.getItem("page_view");
+
+            // Check if page_view entry is present
+            if (visitCount) {
+            visitCount = Number(visitCount) + 1;
+            localStorage.setItem("page_view", visitCount);
+            } else {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
             }
-            window.onload = counter_fn;
+            counterContainer.innerHTML = visitCount;
+
+            // Adding onClick event listener
+            resetButton.addEventListener("click", () => {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
+            counterContainer.innerHTML = visitCount;
+            });
           </script>
                 <!-- Start slideshow creation for portfolio. -->
         
