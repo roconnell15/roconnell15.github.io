@@ -1,0 +1,26 @@
+{
+  "name": "racket",
+  "version": "0.1.0",
+  "homepage": "https://github.com/OperationSpark/racket",
+  "authors": [
+    "John Fraboni <john@operationspark.org>"
+  ],
+  "description": "Not optimally desgiend, but to assist in some gaming utility and physics for animation",
+  "main": "racket.js",
+  "dependencies": {
+    "lodash": "~3.2.0"
+  },
+  "keywords": [
+    "cheap",
+    "game",
+    "physics"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

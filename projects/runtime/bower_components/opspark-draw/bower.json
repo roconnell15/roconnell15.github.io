@@ -1,0 +1,30 @@
+{
+  "name": "opspark-draw",
+  "version": "0.4.0",
+  "homepage": "https://github.com/OperationSpark/draw",
+  "authors": [
+    "John Fraboni <john@operationspark.org>"
+  ],
+  "description": "Not optimally desgiend, but to assist in learning, a wrapper of the CreateJS Graphic API to reduce boiler-plate and that also supports calculation of width and height properties on shapes.",
+  "main": "draw.js",
+  "dependencies": {
+    "easeljs": "~0.8.0",
+    "lodash": "~3.2.0"
+  },
+  "keywords": [
+    "CreateJS",
+    "EaselJS",
+    "Graphic",
+    "Shape",
+    "Width",
+    "Height"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
