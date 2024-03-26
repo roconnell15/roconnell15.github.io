@@ -1,0 +1,138 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>Operation Spark || Runtime!</title>
+        <meta name="description" content="Operation Spark Motion Poem">
+        <meta name="author" content="operationspark.org">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/style.css" rel="stylesheet">
+
+        <!-- all core CreateJS and 3rd party libraries are listed here: -->
+        <script src="bower_components/lodash/lodash.min.js"></script>
+        <script src="bower_components/bluebird/js/browser/bluebird.min.js"></script>
+        <script src="bower_components/proton/build/proton-1.0.0.min.js"></script>
+        <script src="bower_components/easeljs/lib/easeljs-0.8.1.min.js"></script>
+        <script src="bower_components/PreloadJS/lib/preloadjs-0.6.1.min.js"></script>
+        <script src="bower_components/TweenJS/lib/tweenjs-0.6.1.min.js"></script>
+        <script src="bower_components/SoundJS/lib/soundjs-0.6.1.min.js"></script>
+        <script src="bower_components/opspark-draw/draw.js"></script>
+        <script src="bower_components/racket/racket.js"></script>
+
+        <!-- our app javascript code -->
+        <script src="js/util/load.js"></script>
+        <script src="js/util/spin.min.js"></script>
+        <script src="js/util/point.js"></script>
+        <script src="js/spritesheet.js"></script>
+        <script src="js/world/rules.js"></script>
+        <script src="js/particle/particleManager.js"></script>
+        <script src="js/orb/orbManager.js"></script>
+        <script src="js/projectile/projectileManager.js"></script>
+        <script src="js/view/pacifier.js"></script>
+        <script src="js/view/ground.js"></script>
+        <script src="js/player/halle.js"></script>
+        <script src="js/player/playerManager.js"></script>
+        <script src="js/opspark.js"></script>
+        <script src="js/game.js"></script>
+
+       <!-- add any additional scripts here -->
+       <script src="js/view/hud.js"></script>
+       <script src="js/view/background.js"></script>
+
+        <style type="text/css">
+            /*override default styles here*/
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <canvas id="canvas" width="500" height="500"></canvas>
+        </div>
+        <script id="index">
+            (function(){
+                'use strict';
+                
+                var 
+                    opspark = window.opspark,
+                    draw = opspark.draw,
+                    physikz = opspark.racket.physikz,
+                    world = opspark.world,
+                    
+                    data = 'assets/spritesheet/halle/data-v9.json',
+                    app = opspark.makeApp(world.makeRules()),
+                    canvas = app.canvas, 
+                    view = app.view,
+                    fps = draw.fps('#000');
+                
+                var 
+                    space, 
+                    rules,
+                    ground,
+                    spritesheet,
+                    halle,
+                    hud, 
+                    orbManager, 
+                    playerManager, 
+                    particleManager;
+                
+                var debugHalleHitZones = true;
+
+                space = app.space;
+                rules = app.rules,
+                particleManager = opspark.makeParticleManager(app.stage);
+                ground = opspark.makeGround(app);
+
+                // TODO 2 : create background
+                var background = opspark.makeBackground(app,ground);
+                view.addChild(background);
+
+                var help = draw.textfield('MOVES || w: jump | e: flying jump | s: duck | space: fire | q your mom!', 
+                    '20px Arial',
+                    '#ccc', 'left');
+                help.x = 10;
+                help.y = ground.y + ground.getBounds().height + 10;
+                view.addChild(help);
+                
+                window.opspark.makeSpriteSheet(data)
+                    .then(function (ss) {
+                        spritesheet = ss;
+                        
+                        halle = window.opspark.makeHalle(spritesheet, particleManager,debugHalleHitZones);
+                        halle.x = halle.getBounds().width * 2;
+                        halle.y = ground.y - halle.getBounds().height + 3;
+                        app.addUpdateable(halle);
+                        view.addChild(halle);
+                        
+                        playerManager = opspark.makePlayerManager(
+                            halle, 
+                            app, 
+                            opspark.makeProjectileManager(view, space, particleManager));
+                        
+                        app.addUpdateable(playerManager);
+                        app.addUpdateable({update: update});
+                    });
+                
+                view.addChild(fps);
+                app.addUpdateable(fps);
+                
+                function update() {
+                    space.forEach(function (body) {
+                        physikz.updatePosition(body);
+                        physikz.updateSpace(space, physikz.hitTestRadial, rules.handleCollision);
+                        playerManager.hitTest(body);
+                    });
+                }
+                
+                // TODO 1 : add a heads-up display to game
+                hud = opspark.makeHud();
+                view.addChild(hud);
+
+                // TODO 3 : create game manager
+
+            })();
+        </script>
+    </body>
+</html>

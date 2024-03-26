@@ -1,0 +1,37 @@
+{
+  "name": "runtime",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A sidescrolling game",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "cheerio": "^1.0.0-rc.2",
+    "fs": "0.0.1-security",
+    "mocha": "^4.0.0",
+    "sinon": "^3.3.0"
+  },
+  "scripts": {
+    "pretest": "npm install",
+    "test": "mocha ./test/runtime.spec.js || :",
+    "posttest": "rm -rf ./test ./node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OperationSpark/runtime.git"
+  },
+  "keywords": [
+    "runtime",
+    "phaser.js"
+  ],
+  "author": "jfraboni",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OperationSpark/runtime/issues"
+  },
+  "homepage": "https://github.com/OperationSpark/runtime#readme"
+}

@@ -1,0 +1,3 @@
+--reporter json
+--use_strict
+-t

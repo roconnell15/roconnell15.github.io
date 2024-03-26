@@ -1,0 +1,38 @@
+{
+  "name": "runtime",
+  "version": "0.1.0",
+  "homepage": "https://github.com/OperationSpark/runtime",
+  "authors": [
+    "jfraboni <john@operationspark.org>"
+  ],
+  "description": "A game with HalleBot",
+  "main": "index.html",
+  "keywords": [
+    "Operation",
+    "Spark",
+    "motion",
+    "poem"
+  ],
+  "license": "CC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "3.2.0",
+    "easeljs": "0.8.2",
+    "PreloadJS": "0.6.2",
+    "SoundJS": "0.6.2",
+    "chance": "0.7.3",
+    "racket": "0.1.0",
+    "opspark-draw": "0.4.0",
+    "TweenJS": "*",
+    "bluebird": "2.9.27"
+  },
+  "resolutions": {
+    "lodash": "3.2.0"
+  }
+}
