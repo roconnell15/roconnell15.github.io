@@ -16,8 +16,16 @@ var makeLevelData = function (window) {
         speed: -3,
         gameItems: [
           { type: "sawblade", x: 400, y: groundY },
-          { type: "sawblade", x: 600, y: groundY },
-          { type: "sawblade", x: 900, y: groundY },
+          { type: "sawblade", x: 700, y: groundY },
+          { type: "sawblade", x: 1200, y: groundY },
+          { type: "bullet", x: 1000, y: groundY - 142 },
+          { type: "bullet", x: 1400, y: groundY - 142 },
+          { type: "bullet", x: 1600, y: groundY - 142 },
+          { type: "enemy", x: 800, y: groundY - 64 },
+          { type: "enemy", x: 1200, y: groundY - 64 },
+          { type: "enemy", x: 1800, y: groundY - 64 },
+          { type: "reward", x: 2000, y: groundY - 128 },
+          { type: "marker", x: 2100, y: groundY -100},
         ],
       },
       {
@@ -26,8 +34,21 @@ var makeLevelData = function (window) {
         speed: -3,
         gameItems: [
           { type: "sawblade", x: 400, y: groundY },
-          { type: "sawblade", x: 600, y: groundY },
-          { type: "sawblade", x: 900, y: groundY },
+          { type: "sawblade", x: 700, y: groundY },
+          { type: "sawblade", x: 1200, y: groundY },
+          { type: "enemy", x: 600, y: groundY - 64 },
+          { type: "reward", x: 900, y: groundY - 128 },
+          { type: "marker", x: 2100, y: groundY - 100 },
+        ],
+      },
+      {
+        name: "Robot Rumble",
+        number: 2,
+        speed: -3,
+        gameItems: [
+          { type: "bullet", x: 600, y: groundY - 142 },
+          { type: "reward", x: 900, y: groundY - 128 },
+          { type: "marker", x: 2100, y: groundY - 100 },
         ],
       },
     ];
