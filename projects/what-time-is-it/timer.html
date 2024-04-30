@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta http-equiv="X-UA-Compatible" 
+              content="IE=edge"> 
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0"> 
+        <title>Timer App</title> 
+        <link rel="stylesheet" href="style.css"> 
+        <style>
+            body { 
+                padding: 0; 
+                margin: 0; 
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+            } 
+            
+            .container { 
+                display: flex; 
+                flex-direction: column; 
+                justify-content: center; 
+                align-items: center; 
+                width: 100%; 
+                height: 100vh; 
+                background-color: rgb(63, 63, 63); 
+            } 
+            
+            h1 { 
+                color: rgb(49, 231, 231); 
+                text-align: center; 
+                font-family: arial;
+                font-size: 60px;
+                margin-top: -100px;
+                text-shadow: 2.3px 1.5px #000000;
+            } 
+            
+            .digit { 
+                font-size: 150px; 
+                color: #fff; 
+            } 
+            
+            .txt { 
+                font-size: 30px; 
+                color: #fffcd6; 
+            } 
+            
+            #buttons { 
+                margin-top: 50px; 
+            } 
+            
+            .btn { 
+                width: 160px; 
+                padding: 20px 20px; 
+                margin: 0px 20px; 
+                border-top-right-radius: 10px; 
+                border-bottom-left-radius: 10px; 
+                border-bottom-right-radius: 4px; 
+                border-top-left-radius: 4px; 
+                cursor: pointer; 
+                font-size: 20px; 
+                transition: 0.5s; 
+                color: white; 
+                font-weight: 500; 
+            } 
+            
+            #start { 
+                background-color: #00ad2b; 
+            } 
+            
+            #stop { 
+                background-color: #d60000; 
+            } 
+            
+            #reset { 
+                background-color: #000000; 
+            }
+            #back {
+                background-color: #666666;
+            }
+        </style>
+    </head>
+<body>
+    <div class="container">
+        <h1>Timer App <br>By Mr. O'Connell</h1>
+        <div id="time">
+            <span class="digit" id="hr">
+                00
+            </span>
+            <span class="txt">HR</span>
+            <span class="digit" id="min">
+                00
+            </span>
+            <span class="txt">MIN</span>
+            <span class="digit" id="sec">
+                00
+            </span>
+            <span class="txt">SEC</span>
+            <span class="digit" id="count">
+                00
+            </span>
+        </div>
+        <div id="buttons">
+            <button class="btn" id="start">START</button>
+            <button class="btn" id="stop">STOP</button>
+            <button class="btn" id="reset">RESET</button>
+        </div>
+        <div id="buttons">
+        <a href="projects/what-time-is-it/index.html"><button class="btn" id="back">Digital Clock</button></a>
+        </div>
+    </div>
+    <script src="timer.js"></script>
+</body>
+</html>
