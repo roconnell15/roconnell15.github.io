@@ -150,16 +150,16 @@ function wallCollision(obj){ //This function checks if the ball or paddles have 
   if (obj.x <= 0 || obj.x + obj.width >= BOARD_WIDTH){
     if (ball.x <= 0){
       score("right");
-      paddle2.height -= 30;
+      paddle2.height -= 10;
       $(paddle2.id).css("height", paddle2.height);
-      paddle2.y -= 30;
-      paddle2.heightLoss += 30;}
+      paddle2.y -= 10;
+      paddle2.heightLoss += 10;}
     else{
       score("left");
-      paddle1.height -= 30;
+      paddle1.height -= 10;
       $(paddle1.id).css("height", paddle1.height);
-      paddle1.y -= 30
-      paddle2.heightLoss += 30;;
+      paddle1.y -= 10
+      paddle2.heightLoss += 10;;
     }
   }
   if (ball.y <= 0 || ball.y + ball.height >= BOARD_HEIGHT){

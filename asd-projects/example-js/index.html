@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>O'Connell's JS Examples</title>
+        <style type="text/css">
+        body {
+            background: rgb(74, 104, 202);
+            color: rgb(45, 45, 45);
+            padding: 10px;
+            font-family: arial;
+            font-size: 20px;
+        }
+        #all-contents {
+            max-width: fit-content;
+            margin: auto;
+            
+        }
+
+        .ASDtitle{
+            position: relative;
+            left: -62px;
+        }
+        /* navigation menu */
+        nav {
+            background: rgb(41, 239, 74);
+            margin: 0 auto;
+            display: flex;
+            padding:10px;
+            border-radius: 10px;
+            border-color: black;
+            margin: 0 auto;
+            margin-bottom: 15px;
+            max-width: fit-content;
+            box-shadow: 6px 6px #0000004b;
+            width: fit-content;
+        }
+        h1 {
+            display: flex;
+            align-items: center;
+            color: rgb(43, 43, 43);
+            flex: 1;
+            margin: 10px;
+            font-style: oblique;
+            font-size: 40px;
+            padding: 10px;
+        }
+        #nav-ul {
+            list-style-image: none;
+        }
+        .nav-li {
+            display: inline-block;
+            padding: 5px;
+        }
+        .nav-a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            padding-right: 25px;
+        }
+    
+            /* main container area beneath menu */
+        main {
+            background: beige;
+            display: flex;
+            border-radius: 10px;
+            border-color: black;
+            max-width: 1000px;
+            justify-content: center;
+            box-shadow: 6px 6px #0000004b;
+            margin: auto;
+        }
+        .ASD {
+            background: beige;
+            display: flex;
+            border-radius: 10px;
+            border-color: black;
+            max-width: 1000px;
+            justify-content: center;
+            box-shadow: 6px 6px #0000004b;
+            position: relative;
+            top: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            padding-right: 100px;
+        }
+         .content h1 {
+            display: flex;
+            align-items: center;
+            color: rgb(43, 43, 43);
+            flex: 1;
+            margin: auto;
+            font-style: oblique;
+            font-size: 40px;
+            padding: 10px;
+         }
+         .content {
+            margin: auto;
+         }
+         
+         #portfolio {
+             list-style-type: none;
+             padding-left: 0;
+         }
+         
+         #portfolio li {
+            transition: 150ms;
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            box-shadow: 6px 5px #0000004b;
+            margin-bottom: 15px;
+         }
+         
+         #portfolio li:hover {
+             background: rgb(80, 229, 255);
+             box-shadow: 10px 8px #0000004b;
+         } 
+         
+         #portfolio a {
+             text-decoration: none;
+             color: #454545;
+         }
+         h2 {
+            margin-left: 10px;
+         }
+
+
+         </style>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
+         <script src="asd-projects/example-js/coinFlip.js"></script>
+         <script src="asd-projects/example-js/isPalindrome.js"></script>
+    </head>
+
+    <body>
+        <div id="all-contents">
+        <nav>
+            <br>
+            <h1>Mr. O'Connell's JavaScript Examples</h1>
+            <ul id="nav-ul">
+                <li class="nav-li"><a class="nav-a" href="index.html">Home</a></li>
+                <li class="nav-li"><a class="nav-a" href="portfolio.html">Portfolio</a></li>
+                <li class="nav-li"><a class="nav-a" href="images.html">Images</a></li>
+                <li class="nav-li"><a class="nav-a" href="video.html">Videos</a></li>
+            </ul>
+        </nav>
+        <main>
+        <div class="content">
+            <h2>Click the button for a quick JavaScript example!</h2>
+            <ul id="portfolio">
+            <li onclick="coinFlip()">coinFlip</li>
+            <li onclick="isPalindromeDebugging()">Palindrome</li>
+            
+            <!--  JS Bins  -->
+            <li><a href="jsbins.html" target="_blank">Click this link to access all of the JS Bins used in our Fundamentals class.</a></li>
+            </ul>
+        </div>
+        </main>
+        </div>
+
+      </div>
+    </body>
+</html>

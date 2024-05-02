@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="https://code.jquery.com/jquery-git.js"></script> 
+    <title>Walker2</title>
+    <style>
+        body {
+  background-color: black;
+  overflow: hidden;
+}
+
+#board {
+  position: relative;
+  margin: auto;
+  top: 50px;
+  width: 273px;
+  height: 18px;
+  background-color: gray
+}
+
+#player1 {
+    background-color: rgb(0, 255, 0);
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+}
+
+#player2 {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+}
+    </style>
+  </head>
+  
+  <body>
+    <div id='board'>
+        <div id='player1'></div>
+        <div id='player2'></div>
+    </div>
+    <script>
+        $(document).ready(function() {
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////// INITIALIZATION ////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+
+        var FPS = 60;
+
+        
+        
+        //   var player1ID = "#player1";
+        //   var player1X = 0;
+        //   var player1VelocityX = 0;
+        //   var player1Color = "rgb(0, 255, 0)";
+        //   var player1Base = 0;
+
+        var player1 = {
+            ID: "#player1",
+            X: 0,
+            VelocityX: 0,
+            Color: "rgb(0, 255, 0)",
+            Base: 0,
+        }
+        
+        
+        //   var player2ID = "#player2";
+        //   var player2X = 255;
+        //   var player2VelocityX = 0;
+        //   var player2Color = "rgb(255, 255, 255)";
+        //   var player2Base = 255;
+        
+        var player2 = {
+            ID: "#player2",
+            X: 255,
+            VelocityX: 0,
+            Color: "rgb(255, 255, 25)",
+            Base: 255,
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////// CORE LOGIC //////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+
+        setInterval(newFrame, 1000 / FPS); // execute newFrame() 60 times per second
+
+        $(document).on('keydown', setPlayerVelocity); // execute setPlayerVelocity() in response to keydown events
+        $(document).on('keyup', stopPlayerVelocity); // execute stopPlayerVelocity() in response to keydown events
+        $(document).on('keydown', swap);
+        
+        function newFrame() {
+            helper(player1)
+            helper(player2)
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        function helper(player){
+            player.X += player.VelocityX;
+            player.Color = changeColor(player.X, player.Base);
+            $(player.ID).css("left", player.X);
+            $(player.ID).css("background-color", player.Color);
+        }
+        
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////// KEYBOARD FUNCTIONS //////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+
+        /** 
+         Key codes:
+        - left: 37
+        - right: 39
+        - a: 65
+        - d: 68
+        - c: 67
+        */
+        
+        var KEY_CODE = {
+            left: 37,
+            right: 39,
+            a: 65,
+            d: 68,
+            c: 67,
+        }
+
+        
+        //designing a new feature
+        function swap(event){
+            if(event.which === KEY_CODE.c){
+            var original = player1.X
+            player1.X = player2.X
+            player2.X = original
+            }
+        }
+        
+        function setPlayerVelocity(event) {
+            if (event.which === KEY_CODE.left) {
+            player1.VelocityX = -5;
+            }
+            if (event.which === KEY_CODE.right) {
+            player1.VelocityX = 5;
+            }
+            if (event.which === KEY_CODE.a) {
+            player2.VelocityX = -5;
+            }
+            if (event.which === KEY_CODE.d) {
+            player2.VelocityX = 5;
+            }
+        }
+
+        function stopPlayerVelocity(event) {
+            if (event.which === KEY_CODE.left || event.which === KEY_CODE.right) {
+            player1.VelocityX = 0;
+            }
+
+            if (event.which === KEY_CODE.a || event.which === KEY_CODE.d) {
+            player2.VelocityX = 0;
+            }
+        }
+
+        function changeColor(num, base){
+            return "rgb(" + num + "," + base + ", 127)";
+        }
+        }); // DO NOT DELETE
+    </script>
+  </body>
+
+</html>
