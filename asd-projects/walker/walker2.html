@@ -14,25 +14,25 @@
   position: relative;
   margin: auto;
   top: 50px;
-  width: 273px;
-  height: 18px;
+  width: 1000px;
+  height: 1000px;
   background-color: gray
 }
 
 #player1 {
     background-color: rgb(0, 255, 0);
     position: absolute;
-    width: 18px;
-    height: 18px;
-    border-radius: 18px;
+    width: 180px;
+    height: 180px;
+    border-radius: 180px;
 }
 
 #player2 {
     background-color: rgb(255, 255, 255);
     position: absolute;
-    width: 18px;
-    height: 18px;
-    border-radius: 18px;
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
 }
     </style>
   </head>
@@ -61,9 +61,11 @@
         var player1 = {
             ID: "#player1",
             X: 0,
+            Y: 0,
             VelocityX: 0,
-            Color: "rgb(0, 255, 0)",
-            Base: 0,
+            VelocityY: 0,
+            Color: "rgb(0, 0, 0)",
+            Base: 255,
         }
         
         
@@ -75,10 +77,12 @@
         
         var player2 = {
             ID: "#player2",
-            X: 255,
+            X: 800,
+            Y: 800,
             VelocityX: 0,
-            Color: "rgb(255, 255, 25)",
-            Base: 255,
+            VelocityY: 0,
+            Color: "rgb(0, 0, 0)",
+            Base: 0,
         }
 
         ////////////////////////////////////////////////////////////////////////////////
@@ -101,8 +105,11 @@
         ////////////////////////////////////////////////////////////////////////////////
         function helper(player){
             player.X += player.VelocityX;
-            player.Color = changeColor(player.X, player.Base);
+            player.Y += player.VelocityY;
+            player.Color = changeColor(player.X, player.Base, player.X);
+            player.Color = changeColorY(player.Y, player.X, player.Base);
             $(player.ID).css("left", player.X);
+            $(player.ID).css("top", player.Y);
             $(player.ID).css("background-color", player.Color);
         }
         
@@ -122,8 +129,12 @@
         var KEY_CODE = {
             left: 37,
             right: 39,
+            top: 38,
+            bottom: 40,
             a: 65,
             d: 68,
+            w: 87,
+            s: 83,
             c: 67,
         }
 
@@ -131,24 +142,36 @@
         //designing a new feature
         function swap(event){
             if(event.which === KEY_CODE.c){
-            var original = player1.X
+            var swap = player1.X
             player1.X = player2.X
-            player2.X = original
+            player2.X = swap
             }
         }
         
         function setPlayerVelocity(event) {
             if (event.which === KEY_CODE.left) {
-            player1.VelocityX = -5;
+            player1.VelocityX = -15;
             }
             if (event.which === KEY_CODE.right) {
-            player1.VelocityX = 5;
+            player1.VelocityX = 15;
+            }
+            if (event.which === KEY_CODE.top) {
+            player1.VelocityY = -15;
+            }
+            if (event.which === KEY_CODE.bottom) {
+            player1.VelocityY = 15;
             }
             if (event.which === KEY_CODE.a) {
-            player2.VelocityX = -5;
+            player2.VelocityX = -15;
             }
             if (event.which === KEY_CODE.d) {
-            player2.VelocityX = 5;
+            player2.VelocityX = 15;
+            }
+            if (event.which === KEY_CODE.w) {
+            player2.VelocityY = -15;
+            }
+            if (event.which === KEY_CODE.s) {
+            player2.VelocityY = 15;
             }
         }
 
@@ -156,14 +179,23 @@
             if (event.which === KEY_CODE.left || event.which === KEY_CODE.right) {
             player1.VelocityX = 0;
             }
+            if (event.which === KEY_CODE.top || event.which === KEY_CODE.bottom) {
+            player1.VelocityY = 0;
+            }
 
             if (event.which === KEY_CODE.a || event.which === KEY_CODE.d) {
             player2.VelocityX = 0;
             }
+            if (event.which === KEY_CODE.w || event.which === KEY_CODE.s) {
+            player2.VelocityY = 0;
+            }
         }
 
-        function changeColor(num, base){
-            return "rgb(" + num + "," + base + ", 127)";
+        function changeColor(num, base, x){
+            return "rgb(" + base + ", " + num + ", " + x + ")";
+        }
+        function changeColorY(num, base, x){
+            return "rgb(" + num + ", " + base + ", " + x + ")";
         }
         }); // DO NOT DELETE
     </script>
