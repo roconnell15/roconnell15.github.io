@@ -1,5 +1,7 @@
 body{
     background-color: rgb(0, 0, 0);
+    width: 3840px;
+    height: 2160px;
 }
 .ball{
   position:absolute;
