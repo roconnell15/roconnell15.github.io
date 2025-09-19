@@ -4,6 +4,7 @@
         <link rel="icon" type="image/x-icon" href="https://b.kisscc0.com/20180813/phq/kisscc0-sahasrara-chakra-lorawan-sticker-sahasrara-2-rotating-5b71362ea418f1.3218617115341460946722.png">
         <title>O'Connell Home Page</title>
         <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     </head>
     <!-- <script>
         var pass = "CHSlion";
@@ -292,6 +293,20 @@
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
     <br>
+    <script>
+                $(document).on('keydown', changeColor)
+
+        function changeColor(event){
+            if(event.which === 67){
+        	var randomColor = "#000000".replace(/0/g, function () {
+				return (~~(Math.random() * 16)).toString(16);
+				});
+               $('body').css('background', randomColor) 
+            }
+        }
+
+		    
+    </script>
     <script>
         let slideIndex = 1;
         showSlides(slideIndex);

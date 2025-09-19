@@ -8,24 +8,31 @@
 	<style>
 		body {
 			background-color: black;
+			margin: 0;
+			overflow-x: hidden;
+			overflow-y: hidden;
+			user-select: none;
 		}
+		
+		p {
+			margin: auto;
+			padding-top: 20px;
+		}
+		
 		.box {
 			width: 100px;
 			height: 100px;
 			background-color: rgb(0, 255, 85);
 			font-size: 300%;
 			text-align: center;
-			color: rgb(0, 51, 4);
-			display: block;
+			color: rgb(0, 0, 0);
+			display:-moz-inline-grid;
 			position: absolute;
 			top: 375px;
-			left: 0px;  /* <--- Change me! */
-			border-style: solid;
-			border-width: 20px;
-			border-color: rgb(68, 184, 155);
+			left: 0px;  /* <--- Change me! */		
 			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-			
 		}
+		
 		.board{
 			height: 95vh;
 			width: 98%;
@@ -53,7 +60,7 @@
 	<h1>CLICK THE BOX!</h1>
 	<h2>What's the highest you can score?</h2>
 	<!-- HTML for the box -->
-	<div class="box">?</div>
+	<div class="box"><p>?</p></div>
 
 	<script>
 		(function(){
@@ -111,7 +118,7 @@
 				positionX = positionX + speed;
 				positionY = positionY + speedY;
 
-				if (positionX > boardWidth - 150) {
+				if (positionX > boardWidth - 50) {
 					speed = -speed;
 				}
 				if (positionX < 0) {
@@ -120,7 +127,7 @@
 				if(positionY < 0){
 					speedY = -speedY
 				}
-				if(positionY > boardHeight - 150){
+				if(positionY > boardHeight - 50){
 					speedY = -speedY
 				}
 			};
@@ -151,6 +158,13 @@
 				if(speedY > 0){
 					speedY -= 3
 				}
+
+				var randomColor = "#000000".replace(/0/g, function () {
+				return (~~(Math.random() * 16)).toString(16);
+				});
+
+				box.css('background', randomColor)
+
 			}
 		})();
 	</script>
