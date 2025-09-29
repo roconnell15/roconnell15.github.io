@@ -74,34 +74,12 @@
                 <h3>Thanks for checking it out!</h3>
                 <p>For a deeper look into the code of the projects posted <a id="github" href="https://github.com/roconnell15/roconnell15.github.io" target="_blank">click here</a> to visit my repository!</p>
                 <p>For current student work, <a href="current.html">click here</a> to access a list of some of the best student made pages!</p>
-                <p>The current number of total visits is: <div class="website-counter"></div></p>
+                <p>Try pressing the C key to change the background color.</p>
                 <!-- <button id="reset">Reset</button> -->
             </div>
          
         </main>
     </div>
-        <script>
-            var counterContainer = document.querySelector(".website-counter");
-            var resetButton = document.querySelector("#reset");
-            var visitCount = localStorage.getItem("page_view");
-
-            // Check if page_view entry is present
-            if (visitCount) {
-            visitCount = Number(visitCount) + 1;
-            localStorage.setItem("page_view", visitCount);
-            } else {
-            visitCount = 1;
-            localStorage.setItem("page_view", 1);
-            }
-            counterContainer.innerHTML = visitCount;
-
-            // Adding onClick event listener
-            resetButton.addEventListener("click", () => {
-            visitCount = 1;
-            localStorage.setItem("page_view", 1);
-            counterContainer.innerHTML = visitCount;
-            });
-          </script>
                 <!-- Start slideshow creation for portfolio. -->
         
     <div class="slideshow-container">

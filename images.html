@@ -4,120 +4,94 @@
         <title>O'Connell Images</title>
         <style>
             body {
-                background: rgb(74, 104, 202);
-                color: rgb(45, 45, 45);
-                font-family: arial;
+                background: rgb(130, 153, 228);
+                color: #1d1d1f;
+                font-family:  Arial, sans-serif;
                 font-size: 20px;
-                padding: 10px;
+                margin: 0;
+                padding: 0;
             }
             #all-contents {
-              max-width: fit-content;
-                margin: auto;
-
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 24px;
             }
-         
-            /* navigation menu */
             nav {
-                background: rgb(41, 239, 74);
-                margin: 0 auto;
-                display: flex;
-                padding: 10px;
-                border-radius: 10px;
-                border-color: black;
-                margin: 0 auto;
-                margin-bottom: 15px;
-                box-shadow: 6px 6px #0000004b;
-            }
-            h1 {
+                background: #f5f5f7;
                 display: flex;
                 align-items: center;
-                color: rgb(43, 43, 43);
+                padding: 16px 32px;
+                border-radius: 16px;
+                margin: 32px 0 24px 0;
+                box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+            }
+            h1 {
                 flex: 1;
                 margin: 0;
-                font-style: oblique;
-                font-size: 40px;
-                padding: 2px;
+                font-weight: 600;
+                font-size: 2.5rem;
+                color: #1d1d1f;
+                letter-spacing: -1px;
             }
             #nav-ul {
-                list-style-image: none;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                gap: 16px;
             }
             .nav-li {
                 display: inline-block;
-                padding: 5px;
             }
             #navanchor {
                 text-decoration: none;
-                color: rgb(0, 0, 0);
-                padding-right: 25px;
+                color: #0071e3;
+                font-weight: 500;
+                font-size: 1.1rem;
+                transition: color 0.2s;
             }
-        
-            /* main container area beneath menu */
-            main {
-                background: beige;
+            #navanchor:hover {
+                color: #005bb5;
+            }
+            .image-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 32px;
+                margin-top: 32px;
+            }
+            .image-item {
+                background: #f5f5f7;
+                border-radius: 18px;
+                box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+                overflow: hidden;
+                transition: transform 0.2s, box-shadow 0.2s;
                 display: flex;
-                border-radius: 10px;
-                border-color: black;
-                box-shadow: 6px 6px #0000004b;
-                margin-left: 10%;
-                margin-right: 10%;
+                align-items: center;
+                justify-content: center;
+                padding: 16px;
             }
-            .bottomText {
-                background: beige;
-                border-radius: 10px;
-                padding: 30px;
-                margin: auto;
-                margin-top: 20px;
-                border-color: black;
-                box-shadow: 6px 6px #0000004b;
-                margin-left: 15%;
-                margin-right: 20%;
-                max-width: 900px;
+            .image-item:hover {
+                transform: translateY(-4px) scale(1.03);
+                box-shadow: 0 8px 32px 0 rgba(0,0,0,0.12);
             }
-            .sidebar {
-                margin-right: 25px;
-                padding: 20px;
+            .image-item img {
+                max-width: 100%;
+                max-height: 320px;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+                background: #fff;
             }
-            .sidebar-img {
-                width: 200px;
-                border-radius: 5px;
-                border: 8px rgb(0, 0, 0);
-                border-style: outset;
-                box-shadow: 0px 0px #0000004b;
+            @media (max-width: 900px) {
+                .image-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
             }
-            .content {
-                flex: 1;
-                padding: 35px;
+            @media (max-width: 600px) {
+                .image-grid {
+                    grid-template-columns: 1fr;
+                }
             }
-            #interests {
-                border: 10px silver ridge;
-                padding: 8px;
-            }
-            h2, h3 {
-                margin: 0px;
-            }
-
-            .slideshow-image {
-                border: #ffffff 10px;
-                border-style: solid;
-            }
-
-            .slideshow-container {
-                max-width: 1000px;
-                position: center;
-                margin: auto;
-                margin-top: 20px;
-                margin-left: 14%;
-                margin-right: 10%;
-            }
-
-            /* Hide the images by default */
-
-
-            @keyframes fade {
-            from {opacity: .4}
-            to {opacity: 1}
-            }
-         </style>
+    </style>
     </head>
     
     <body>
@@ -136,342 +110,141 @@
                     <li class="nav-li"><a id="navanchor" href="video.html">Videos</a></li>
                 </ul>
             </nav>
-                <!-- Start slideshow creation for portfolio. -->
-        
-    <div class="slideshow-container">
-
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_3215.jpg" style="width:100%">
-        <!-- Below adds captions. Come back later. -->
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_6461.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_3271.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-        
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_3267 (1).jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-         </div>
-        
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_3254.jpg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/ROlogo.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_3126 (1).jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-            
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_2940 (1).jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_2899.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_0257 (2).jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-            
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_0022.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/robeech.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/Bubbles.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-            
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/ALMN7871.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/Beach Dark.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/B and W.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-            
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/albumcova.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/2.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-        
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/notjunk.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/newphotos/abstract.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/newphotos/Cabin after.jpg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/newphotos/Pink.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/newphotos/SLU.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/newphotos/Mustang.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/newphotos/novibrant.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/newphotos/IMG_0226.jpg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/newphotos/IMG_3044.jpg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/newphotos/IMG_3160.jpg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/newphotos/IMG_3233.jpg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/newphotos/IMG_3238.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/newphotos/IMG_3747.jpg" style="width:100%">
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/logograndcanyon.jpeg" style="width:100%">
-        <!-- Below adds captions. Come back later. -->
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/beach.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/tristyn.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-        
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/pond.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-            </div>
-        
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/moon.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/ROlogo.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/redsky.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-            
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/audi.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/cheyenne.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/Seaside Lights.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-            
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/redmoon.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/robeech.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/rospin.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-            
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMVN9314.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/JITL4029.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_1353.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-            
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/slow spin.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-    
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_3240 (1).jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/IMG_3241.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-                
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/neon.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-        
-        <div class="mySlides fade">
-        <img class="slideshow-image" src="assets/notjunk.jpeg" style="width:100%">
-        <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-            <img class="slideshow-image" src="assets/uploads8/b and w 3.jpg" style="width:100%">
-            <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-            <img class="slideshow-image" src="assets/uploads8/IMG_0189.JPG" style="width:100%">
-            <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-            <img class="slideshow-image" src="assets/uploads8/IMG_0809.JPG" style="width:100%">
-            <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-            <img class="slideshow-image" src="assets/uploads8/IMG_1598.JPG" style="width:100%">
-            <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-            <img class="slideshow-image" src="assets/uploads8/IMG_2978.jpg" style="width:100%">
-            <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-            <img class="slideshow-image" src="assets/uploads8/IMG_3204.jpg" style="width:100%">
-            <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-            <img class="slideshow-image" src="assets/uploads8/pepper.jpg" style="width:100%">
-            <!-- <div class="text"></div> -->
-        </div>
-
-        <div class="mySlides fade">
-            <img class="slideshow-image" src="assets/uploads8/IMG_6145.JPG" style="width:100%">
-            <!-- <div class="text"></div> -->
-        </div>
-    </div>
-    <br>
-    <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        // Next/previous controls
-        function plusSlides(n) {
-        showSlides(slideIndex += n);
-        }
-
-        // Thumbnail image controls
-        function currentSlide(n) {
-        showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "block";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-        }
-    </script>
-        </div>
+                <div class="image-grid">
+                    <div class="image-item"><img src="assets/IMG_3215.jpg" alt="IMG_3215"></div>
+                    <div class="image-item"><img src="assets/IMG_6461.jpeg" alt="IMG_6461"></div>
+                    <div class="image-item"><img src="assets/IMG_3271.jpeg" alt="IMG_3271"></div>
+                    <div class="image-item"><img src="assets/IMG_3267 (1).jpeg" alt="IMG_3267"></div>
+                    <div class="image-item"><img src="assets/IMG_3254.jpg" alt="IMG_3254"></div>
+                    <div class="image-item"><img src="assets/ROlogo.jpeg" alt="ROlogo"></div>
+                    <div class="image-item"><img src="assets/IMG_3126 (1).jpeg" alt="IMG_3126"></div>
+                    <div class="image-item"><img src="assets/IMG_2940 (1).jpeg" alt="IMG_2940"></div>
+                    <div class="image-item"><img src="assets/IMG_2899.jpeg" alt="IMG_2899"></div>
+                    <div class="image-item"><img src="assets/IMG_0257 (2).jpeg" alt="IMG_0257"></div>
+                    <div class="image-item"><img src="assets/IMG_0022.jpeg" alt="IMG_0022"></div>
+                    <div class="image-item"><img src="assets/robeech.jpeg" alt="robeech"></div>
+                    <div class="image-item"><img src="assets/Bubbles.jpeg" alt="Bubbles"></div>
+                    <div class="image-item"><img src="assets/ALMN7871.jpeg" alt="ALMN7871"></div>
+                    <div class="image-item"><img src="assets/Beach Dark.jpeg" alt="Beach Dark"></div>
+                    <div class="image-item"><img src="assets/B and W.jpeg" alt="B and W"></div>
+                    <div class="image-item"><img src="assets/albumcova.jpeg" alt="albumcova"></div>
+                    <div class="image-item"><img src="assets/2.jpeg" alt="2"></div>
+                    <div class="image-item"><img src="assets/notjunk.jpeg" alt="notjunk"></div>
+                    <div class="image-item"><img src="assets/newphotos/abstract.jpeg" alt="abstract"></div>
+                    <div class="image-item"><img src="assets/newphotos/Cabin after.jpg" alt="Cabin after"></div>
+                    <div class="image-item"><img src="assets/newphotos/Pink.jpeg" alt="Pink"></div>
+                    <div class="image-item"><img src="assets/newphotos/SLU.jpeg" alt="SLU"></div>
+                    <div class="image-item"><img src="assets/newphotos/Mustang.jpeg" alt="Mustang"></div>
+                    <div class="image-item"><img src="assets/newphotos/novibrant.jpeg" alt="novibrant"></div>
+                    <div class="image-item"><img src="assets/newphotos/IMG_0226.jpg" alt="IMG_0226"></div>
+                    <div class="image-item"><img src="assets/newphotos/IMG_3044.jpg" alt="IMG_3044"></div>
+                    <div class="image-item"><img src="assets/newphotos/IMG_3160.jpg" alt="IMG_3160"></div>
+                    <div class="image-item"><img src="assets/newphotos/IMG_3233.jpg" alt="IMG_3233"></div>
+                    <div class="image-item"><img src="assets/newphotos/IMG_3238.jpeg" alt="IMG_3238"></div>
+                    <div class="image-item"><img src="assets/newphotos/IMG_3747.jpg" alt="IMG_3747"></div>
+                    <div class="image-item"><img src="assets/logograndcanyon.jpeg" alt="logograndcanyon"></div>
+                    <div class="image-item"><img src="assets/beach.jpeg" alt="beach"></div>
+                    <div class="image-item"><img src="assets/tristyn.jpeg" alt="tristyn"></div>
+                    <div class="image-item"><img src="assets/pond.jpeg" alt="pond"></div>
+                    <div class="image-item"><img src="assets/moon.jpeg" alt="moon"></div>
+                    <div class="image-item"><img src="assets/ROlogo.jpeg" alt="ROlogo"></div>
+                    <div class="image-item"><img src="assets/redsky.jpeg" alt="redsky"></div>
+                    <div class="image-item"><img src="assets/audi.jpeg" alt="audi"></div>
+                    <div class="image-item"><img src="assets/cheyenne.jpeg" alt="cheyenne"></div>
+                    <div class="image-item"><img src="assets/Seaside Lights.jpeg" alt="Seaside Lights"></div>
+                    <div class="image-item"><img src="assets/redmoon.jpeg" alt="redmoon"></div>
+                    <div class="image-item"><img src="assets/robeech.jpeg" alt="robeech"></div>
+                    <div class="image-item"><img src="assets/rospin.jpeg" alt="rospin"></div>
+                    <div class="image-item"><img src="assets/IMVN9314.jpeg" alt="IMVN9314"></div>
+                    <div class="image-item"><img src="assets/JITL4029.jpeg" alt="JITL4029"></div>
+                    <div class="image-item"><img src="assets/IMG_1353.jpeg" alt="IMG_1353"></div>
+                    <div class="image-item"><img src="assets/slow spin.jpeg" alt="slow spin"></div>
+                    <div class="image-item"><img src="assets/IMG_3240 (1).jpeg" alt="IMG_3240"></div>
+                    <div class="image-item"><img src="assets/IMG_3241.jpeg" alt="IMG_3241"></div>
+                    <div class="image-item"><img src="assets/neon.jpeg" alt="neon"></div>
+                    <div class="image-item"><img src="assets/notjunk.jpeg" alt="notjunk"></div>
+                    <div class="image-item"><img src="assets/uploads8/b and w 3.jpg" alt="b and w 3"></div>
+                    <div class="image-item"><img src="assets/uploads8/IMG_0189.JPG" alt="IMG_0189"></div>
+                    <div class="image-item"><img src="assets/uploads8/IMG_0809.JPG" alt="IMG_0809"></div>
+                    <div class="image-item"><img src="assets/uploads8/IMG_1598.JPG" alt="IMG_1598"></div>
+                    <div class="image-item"><img src="assets/uploads8/IMG_2978.jpg" alt="IMG_2978"></div>
+                    <div class="image-item"><img src="assets/uploads8/IMG_3204.jpg" alt="IMG_3204"></div>
+                    <div class="image-item"><img src="assets/uploads8/pepper.jpg" alt="pepper"></div>
+                    <div class="image-item"><img src="assets/uploads8/IMG_6145.JPG" alt="IMG_6145"></div>
+                </div>
+                <!-- Modal for full-size image -->
+                <div id="imageModal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modalImg" alt="Full Size">
+                </div>
     </body>
+        <script>
+        // Modal logic
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const closeBtn = document.querySelector('.close');
+        document.querySelectorAll('.image-item img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'block';
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+            });
+        });
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+            modalImg.src = '';
+        }
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                modalImg.src = '';
+            }
+        }
+        </script>
+        <style>
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100vw;
+                height: 100vh;
+                overflow: auto;
+                background-color: rgba(0,0,0,0.85);
+                animation: fadeIn 0.3s;
+            }
+            .modal-content {
+                display: block;
+                margin: 5vh auto;
+                max-width: 90vw;
+                max-height: 80vh;
+                border-radius: 18px;
+                box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+                background: #fff;
+                animation: scaleUp 0.3s;
+            }
+            .close {
+                position: absolute;
+                top: 32px;
+                right: 48px;
+                color: #fff;
+                font-size: 48px;
+                font-weight: 300;
+                cursor: pointer;
+                z-index: 1001;
+                transition: color 0.2s;
+            }
+            .close:hover {
+                color: #0071e3;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes scaleUp {
+                from { transform: scale(0.95); }
+                to { transform: scale(1); }
+            }
+        </style>
 </html>
