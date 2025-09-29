@@ -175,31 +175,72 @@
                 <!-- Modal for full-size image -->
                 <div id="imageModal" class="modal">
                     <span class="close">&times;</span>
+                    <span class="modal-arrow left">&#10094;</span>
                     <img class="modal-content" id="modalImg" alt="Full Size">
+                    <span class="modal-arrow right">&#10095;</span>
                 </div>
     </body>
         <script>
-        // Modal logic
+        // Modal logic with navigation
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
         const closeBtn = document.querySelector('.close');
-        document.querySelectorAll('.image-item img').forEach(img => {
+        const leftArrow = document.querySelector('.modal-arrow.left');
+        const rightArrow = document.querySelector('.modal-arrow.right');
+        const images = Array.from(document.querySelectorAll('.image-item img'));
+        let currentIndex = 0;
+
+        function showModal(index) {
+            currentIndex = index;
+            modal.style.display = 'block';
+            modalImg.src = images[index].src;
+            modalImg.alt = images[index].alt;
+        }
+
+        images.forEach((img, idx) => {
             img.addEventListener('click', function() {
-                modal.style.display = 'block';
-                modalImg.src = this.src;
-                modalImg.alt = this.alt;
+                showModal(idx);
             });
         });
+
         closeBtn.onclick = function() {
             modal.style.display = 'none';
             modalImg.src = '';
         }
+
+        leftArrow.onclick = function(e) {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showModal(currentIndex);
+        }
+
+        rightArrow.onclick = function(e) {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % images.length;
+            showModal(currentIndex);
+        }
+
         window.onclick = function(event) {
             if (event.target === modal) {
                 modal.style.display = 'none';
                 modalImg.src = '';
             }
         }
+
+        window.addEventListener('keydown', function(e) {
+            if (modal.style.display === 'block') {
+                if (e.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    showModal(currentIndex);
+                } else if (e.key === 'ArrowRight') {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    showModal(currentIndex);
+                } else if (e.key === 'Escape') {
+                    modal.style.display = 'none';
+                    modalImg.src = '';
+                }
+            }
+        });
         </script>
         <style>
             .modal {
@@ -236,6 +277,28 @@
                 transition: color 0.2s;
             }
             .close:hover {
+                color: #0071e3;
+            }
+            .modal-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #fff;
+                font-size: 64px;
+                font-weight: 300;
+                cursor: pointer;
+                z-index: 1001;
+                user-select: none;
+                padding: 0 24px;
+                transition: color 0.2s;
+            }
+            .modal-arrow.left {
+                left: 0;
+            }
+            .modal-arrow.right {
+                right: 0;
+            }
+            .modal-arrow:hover {
                 color: #0071e3;
             }
             @keyframes fadeIn {
