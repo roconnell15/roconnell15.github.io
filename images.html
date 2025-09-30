@@ -4,9 +4,9 @@
         <title>O'Connell Images</title>
         <style>
             body {
-                background: rgb(130, 153, 228);
-                color: #1d1d1f;
-                font-family:  Arial, sans-serif;
+                background: #18120f;
+                color: #39ff14;
+                font-family: 'Creepster', Arial, sans-serif;
                 font-size: 20px;
                 margin: 0;
                 padding: 0;
@@ -17,21 +17,22 @@
                 padding: 0 24px;
             }
             nav {
-                background: #f5f5f7;
+                background: linear-gradient(90deg, #39ff14 0%, #458655 100%);
                 display: flex;
                 align-items: center;
                 padding: 16px 32px;
                 border-radius: 16px;
                 margin: 32px 0 24px 0;
-                box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+                box-shadow: 0 2px 16px 0 rgba(57,255,20,0.18);
             }
             h1 {
                 flex: 1;
                 margin: 0;
                 font-weight: 600;
                 font-size: 2.5rem;
-                color: #1d1d1f;
+                color: #072c09;
                 letter-spacing: -1px;
+                text-shadow: 2px 2px 8px #000, 0 0 10px #39ff14;
             }
             #nav-ul {
                 list-style: none;
@@ -45,13 +46,14 @@
             }
             #navanchor {
                 text-decoration: none;
-                color: #0071e3;
+                color: #39ff14;
                 font-weight: 500;
                 font-size: 1.1rem;
                 transition: color 0.2s;
+                text-shadow: 1px 1px 6px #000;
             }
             #navanchor:hover {
-                color: #005bb5;
+                color: #fff;
             }
             .image-grid {
                 display: grid;
@@ -60,26 +62,26 @@
                 margin-top: 32px;
             }
             .image-item {
-                background: #f5f5f7;
-                border-radius: 18px;
-                box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
-                overflow: hidden;
-                transition: transform 0.2s, box-shadow 0.2s;
+                
+                transition: transform 0.2s;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 padding: 16px;
             }
-            .image-item:hover {
-                transform: translateY(-4px) scale(1.03);
-                box-shadow: 0 8px 32px 0 rgba(0,0,0,0.12);
-            }
             .image-item img {
                 max-width: 100%;
                 max-height: 320px;
                 border-radius: 12px;
-                box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
-                background: #fff;
+                box-shadow: 0 0 2px 2px #37ff1457, 0 2px 8px 0 rgba(57,255,20,0.18);
+                background: #18120f;
+                border: 4px solid #39ff14;
+                transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+            }
+            .image-item img:hover {
+                box-shadow: 0 0 8px 8px #37ff1488, 0 2px 8px 0 rgba(57,255,20,0.18);
+                border-color: #39ff14;
+                transform: scale(1.08);
             }
             @media (max-width: 900px) {
                 .image-grid {
@@ -252,7 +254,6 @@
                 width: 100vw;
                 height: 100vh;
                 overflow: auto;
-                background-color: rgba(0,0,0,0.85);
                 animation: fadeIn 0.3s;
             }
             .modal-content {
@@ -261,29 +262,31 @@
                 max-width: 90vw;
                 max-height: 80vh;
                 border-radius: 18px;
-                box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
-                background: #fff;
+                box-shadow: 0 8px 32px 0 rgba(57,255,20,0.32);
+                background: #18120f;
+                border: 6px solid #39ff14;
                 animation: scaleUp 0.3s;
             }
             .close {
                 position: absolute;
                 top: 32px;
                 right: 48px;
-                color: #fff;
+                color: #39ff14;
                 font-size: 48px;
                 font-weight: 300;
                 cursor: pointer;
                 z-index: 1001;
                 transition: color 0.2s;
+                text-shadow: 2px 2px 8px #000;
             }
             .close:hover {
-                color: #0071e3;
+                color: #fff;
             }
             .modal-arrow {
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                color: #fff;
+                color: #39ff14;
                 font-size: 64px;
                 font-weight: 300;
                 cursor: pointer;
@@ -291,6 +294,7 @@
                 user-select: none;
                 padding: 0 24px;
                 transition: color 0.2s;
+                text-shadow: 2px 2px 8px #000;
             }
             .modal-arrow.left {
                 left: 0;
@@ -299,7 +303,7 @@
                 right: 0;
             }
             .modal-arrow:hover {
-                color: #0071e3;
+                color: #fff;
             }
             @keyframes fadeIn {
                 from { opacity: 0; }
