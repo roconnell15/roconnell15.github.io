@@ -50,6 +50,7 @@ $(document).ready(function(){
   
   // start the game
   startGame();
+  createMaze();
 
   /* 
   * Called once per "tick" of the pacmanTimer. This function should execute the 
@@ -85,16 +86,44 @@ $(document).ready(function(){
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-  
-
-  
-  
+  function createMaze() {
+    var level = getLevel("level1");
+    
+    for (var j = 0; j < level.length; j++) {
+      for (var i = 0; i < level.length; i++) {
+        if (level[j][i] === 0) {
+          $('<div>').addClass('pellet').attr('id', 'r' + j + 'c' + i).appendTo($board)
+            .css('left', i * 20)
+            .css('top', j * 20)
+            .css('id', 'pelletPiece' + j + '-' + i)
+        }
+        if (level[j][i] === 1) {
+          $('<div>').addClass('square wall').attr('id', 'r' + j + 'c' + i).appendTo($board)
+            .css('left', i * 20)
+            .css('top', j * 20)
+            .css('id', 'wallPiece' + j + '-' + i);
+        }
+        if (level[j][i] === 7) {
+          $('<div>').addClass('square gate').attr('id', 'r' + j + 'c' + i).appendTo($board)
+            .css('left', i * 20)
+            .css('top', j * 20)
+            .css('id', 'gatePiece' + j + '-' + i);
+        }
+        if (level[j][i] === 0) {
+          $('<div>').addClass('square').attr('id', 'r' + j + 'c' + i).appendTo($board)
+            .css('left', i * 20)
+            .css('top', j * 20)
+            .css('id', 'square' + j + '-' + i);
+        }
+      }
+    }
+  } 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// EVENT HELPER FUNCTIONS //////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
   function handleEvent(event) {
-
+    
   }
   
 });
