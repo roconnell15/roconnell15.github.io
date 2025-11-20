@@ -24,7 +24,7 @@
     <body>
         <div id="all-contents">
             <nav>
-                <h1>Mr. O'Connell's Web Page</h1>
+                <h1>Mr. O'Connell's Home Page</h1>
                 <ul id="nav-ul">
                     <li class="nav-li">
                         <a id="navanchor" href="index.html">Home</a>
@@ -74,7 +74,7 @@
                 <h3>Thanks for checking it out!</h3>
                 <p>For a deeper look into the code of the projects posted <a id="github" href="https://github.com/roconnell15/roconnell15.github.io" target="_blank">click here</a> to visit my repository!</p>
                 <p>For current student work, <a href="current.html">click here</a> to access a list of some of the best student made pages!</p>
-                <p>Try pressing the C key to change the background color.</p>
+                <p>Try pressing the C key to change the background color. Press the R key to reset.</p>
                 <!-- <button id="reset">Reset</button> -->
             </div>
          
@@ -280,6 +280,9 @@
 				return (~~(Math.random() * 16)).toString(16);
 				});
                $('body').css('background', randomColor) 
+            }
+            if(event.which === 82){
+                $('body').css('background', '#757575') 
             }
         }
 

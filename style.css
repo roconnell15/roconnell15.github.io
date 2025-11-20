@@ -1,43 +1,56 @@
-  body {
-      background: rgb(130, 153, 228);
-      color: rgb(45, 45, 45);
-      padding: 10px;
-      font-size: 20px;
-      font-family: Arial, Helvetica, sans-serif;
-      padding-bottom: 10%;
-  }
+body {
+    background: #757575;
+    /* Light greyish-blue neutral background */
+    color: #383450;
+    /* Dark gray is softer on eyes than pure black */
+    padding: 20px;
+    /* Slightly more spacing */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Modern system fonts */
+    line-height: 1.6;
+    /* Improves text readability */
+}
 
-  #all-contents {
-      max-width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-      align-self: center;
-  }
 
-  /* navigation menu */
-  nav {
-      background: rgb(241, 161, 40);
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      padding: 10px;
-      border-radius: 10px;
-      border-color: black;
-      margin: 0 auto;
-      margin-bottom: 15px;
-      box-shadow: 6px 6px #0000004b;
-  }
+/* navigation menu */
+nav {
+    background: #6285a8;
+    /* Keep your existing blue */
+    display: flex;
+    align-items: center;
+    /* Centers everything horizontally */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.432);
+    margin-bottom: 20px;
+}
 
-  h1 {
-      display: flex;
-      align-items: center;
-      color: rgb(43, 43, 43);
-      flex: 1;
-      margin: 0;
-      font-style: oblique;
-      font-size: 40px;
-      padding: 10px;
-  }
+/* If you have links inside your nav, you might need to make them white to be visible */
+#navanchor {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#navanchor:hover {
+    color: lime;
+}
+
+h1 {
+    text-align: center;
+    /* Simple centering */
+    color: #2c3e50;
+    /* Match the nav bar color for consistency */
+    font-size: 36px;
+    font-weight: 700;
+    /* Bold and clear */
+    margin-bottom: 20px;
+    /* Space below the title */
+    font-style: normal;
+    /* Removes the 'oblique' slant */
+}
 
   #nav-ul {
       list-style-image: none;
@@ -48,15 +61,9 @@
       padding: 5px;
   }
 
-  #navanchor {
-      text-decoration: none;
-      color: rgb(0, 0, 0);
-      padding-right: 25px;
-  }
-
   /* main container area beneath menu */
   main {
-      background: beige;
+      background: rgba(245, 245, 220, 0.712);
       display: flex;
       border-radius: 10px;
       border-color: black;
@@ -66,7 +73,7 @@
   }
 
   .bottomText {
-      background: beige;
+      background: rgba(245, 245, 220, 0.61);
       border-radius: 10px;
       padding: 30px;
       margin: auto;
@@ -76,6 +83,7 @@
       margin-left: 15%;
       margin-right: 20%;
       max-width: 900px;
+      margin-bottom: 30px;
   }
 
   .sidebar {
@@ -115,7 +123,7 @@
       max-width: 1000px;
       position: center;
       margin: auto;
-      margin-top: 20px;
+      margin-top: 40px;
       margin-left: auto;
       margin-right: auto;
   }
@@ -232,7 +240,7 @@
 
  /* main container area beneath menu */
  main {
-     background: beige;
+     background: rgb(245, 245, 220);
      display: flex;
      border-radius: 10px;
      border-color: black;

@@ -69,4 +69,20 @@
         </div>
       </div>
     </body>
+    <script>
+        $(document).on('keydown', changeColor)
+
+        function changeColor(event){
+            if(event.which === 67){
+        	var randomColor = "#000000".replace(/0/g, function () {
+				return (~~(Math.random() * 16)).toString(16);
+				});
+               $('body').css('background', randomColor) 
+            }
+            if(event.which === 82){
+                $('body').css('background', '#757575') 
+            }
+        }
+
+    </script>
 </html>
