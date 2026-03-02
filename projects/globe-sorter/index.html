@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ultimate Silhouette Sorter</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #eef2f7; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .stats { margin-bottom: 10px; font-weight: bold; color: #4a5568; }
+        #shapes-area { 
+            display: flex; justify-content: center; gap: 30px; 
+            margin-bottom: 40px; min-height: 160px; width: 100%; max-width: 800px;
+            background: white; border-radius: 20px; padding: 20px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        .country-card { width: 120px; text-align: center; cursor: grab; }
+        .silhouette { width: 100px; height: 100px; filter: brightness(0); transition: filter 0.5s; pointer-events: none; }
+        
+        .drop-zones { 
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; 
+            width: 100%; max-width: 900px; 
+        }
+        .zone { 
+            border: 2px solid #cbd5e0; border-radius: 12px; padding: 15px; 
+            min-height: 100px; background: #fff; text-align: center;
+            display: flex; flex-direction: column; align-items: center; gap: 5px;
+        }
+        .zone.drag-over { border-color: #4299e1; background: #ebf8ff; }
+        .correct-item { width: 40px !important; height: 40px !important; filter: none !important; margin: 2px; }
+        #message { margin-top: 20px; font-size: 1.2rem; font-weight: bold; min-height: 1.5em; }
+    </style>
+</head>
+<body>
+
+    <h1>Global Silhouette Sorter</h1>
+    <div class="stats" id="counter">Remaining: --</div>
+    
+    <div id="shapes-area"></div>
+
+    <div class="drop-zones" id="drop-zones"></div>
+    
+    <div id="message"></div>
+
+    <script>
+        // Expanded list of countries
+        const masterList = [
+    // AFRICA
+    { name: "Algeria", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/dz/vector.svg" },
+    { name: "Angola", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ao/vector.svg" },
+    { name: "Benin", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bj/vector.svg" },
+    { name: "Botswana", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bw/vector.svg" },
+    { name: "Burkina Faso", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bf/vector.svg" },
+    { name: "Burundi", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bi/vector.svg" },
+    { name: "Cameroon", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/cm/vector.svg" },
+    { name: "Cape Verde", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/cv/vector.svg" },
+    { name: "Central African Republic", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/cf/vector.svg" },
+    { name: "Chad", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/td/vector.svg" },
+    { name: "Comoros", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/km/vector.svg" },
+    { name: "Congo", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/cg/vector.svg" },
+    { name: "DR Congo", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/cd/vector.svg" },
+    { name: "Djibouti", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/dj/vector.svg" },
+    { name: "Egypt", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/eg/vector.svg" },
+    { name: "Equatorial Guinea", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gq/vector.svg" },
+    { name: "Eritrea", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/er/vector.svg" },
+    { name: "Eswatini", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sz/vector.svg" },
+    { name: "Ethiopia", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/et/vector.svg" },
+    { name: "Gabon", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ga/vector.svg" },
+    { name: "Gambia", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gm/vector.svg" },
+    { name: "Ghana", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gh/vector.svg" },
+    { name: "Guinea", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gn/vector.svg" },
+    { name: "Guinea-Bissau", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gw/vector.svg" },
+    { name: "Ivory Coast", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ci/vector.svg" },
+    { name: "Kenya", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ke/vector.svg" },
+    { name: "Lesotho", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ls/vector.svg" },
+    { name: "Liberia", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/lr/vector.svg" },
+    { name: "Libya", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ly/vector.svg" },
+    { name: "Madagascar", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mg/vector.svg" },
+    { name: "Malawi", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mw/vector.svg" },
+    { name: "Mali", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ml/vector.svg" },
+    { name: "Mauritania", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mr/vector.svg" },
+    { name: "Mauritius", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mu/vector.svg" },
+    { name: "Morocco", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ma/vector.svg" },
+    { name: "Mozambique", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mz/vector.svg" },
+    { name: "Namibia", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/na/vector.svg" },
+    { name: "Niger", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ne/vector.svg" },
+    { name: "Nigeria", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ng/vector.svg" },
+    { name: "Rwanda", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/rw/vector.svg" },
+    { name: "Sao Tome and Principe", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/st/vector.svg" },
+    { name: "Senegal", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sn/vector.svg" },
+    { name: "Seychelles", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sc/vector.svg" },
+    { name: "Sierra Leone", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sl/vector.svg" },
+    { name: "Somalia", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/so/vector.svg" },
+    { name: "South Africa", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/za/vector.svg" },
+    { name: "South Sudan", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ss/vector.svg" },
+    { name: "Sudan", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sd/vector.svg" },
+    { name: "Tanzania", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/tz/vector.svg" },
+    { name: "Togo", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/tg/vector.svg" },
+    { name: "Tunisia", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/tn/vector.svg" },
+    { name: "Uganda", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ug/vector.svg" },
+    { name: "Zambia", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/zm/vector.svg" },
+    { name: "Zimbabwe", continent: "Africa", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/zw/vector.svg" },
+
+    // ASIA
+    { name: "Afghanistan", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/af/vector.svg" },
+    { name: "Armenia", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/am/vector.svg" },
+    { name: "Azerbaijan", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/az/vector.svg" },
+    { name: "Bahrain", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bh/vector.svg" },
+    { name: "Bangladesh", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bd/vector.svg" },
+    { name: "Bhutan", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bt/vector.svg" },
+    { name: "Brunei", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bn/vector.svg" },
+    { name: "Cambodia", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/kh/vector.svg" },
+    { name: "China", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/cn/vector.svg" },
+    { name: "Cyprus", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/cy/vector.svg" },
+    { name: "Georgia", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ge/vector.svg" },
+    { name: "India", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/in/vector.svg" },
+    { name: "Indonesia", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/id/vector.svg" },
+    { name: "Iran", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ir/vector.svg" },
+    { name: "Iraq", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/iq/vector.svg" },
+    { name: "Israel", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/il/vector.svg" },
+    { name: "Japan", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/jp/vector.svg" },
+    { name: "Jordan", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/jo/vector.svg" },
+    { name: "Kazakhstan", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/kz/vector.svg" },
+    { name: "Kuwait", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/kw/vector.svg" },
+    { name: "Kyrgyzstan", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/kg/vector.svg" },
+    { name: "Laos", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/la/vector.svg" },
+    { name: "Lebanon", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/lb/vector.svg" },
+    { name: "Malaysia", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/my/vector.svg" },
+    { name: "Maldives", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mv/vector.svg" },
+    { name: "Mongolia", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mn/vector.svg" },
+    { name: "Myanmar", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mm/vector.svg" },
+    { name: "Nepal", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/np/vector.svg" },
+    { name: "North Korea", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/kp/vector.svg" },
+    { name: "Oman", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/om/vector.svg" },
+    { name: "Pakistan", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/pk/vector.svg" },
+    { name: "Palestine", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ps/vector.svg" },
+    { name: "Philippines", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ph/vector.svg" },
+    { name: "Qatar", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/qa/vector.svg" },
+    { name: "Saudi Arabia", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sa/vector.svg" },
+    { name: "Singapore", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sg/vector.svg" },
+    { name: "South Korea", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/kr/vector.svg" },
+    { name: "Sri Lanka", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/lk/vector.svg" },
+    { name: "Syria", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sy/vector.svg" },
+    { name: "Taiwan", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/tw/vector.svg" },
+    { name: "Tajikistan", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/tj/vector.svg" },
+    { name: "Thailand", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/th/vector.svg" },
+    { name: "Timor-Leste", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/tl/vector.svg" },
+    { name: "Turkey", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/tr/vector.svg" },
+    { name: "Turkmenistan", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/tm/vector.svg" },
+    { name: "United Arab Emirates", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ae/vector.svg" },
+    { name: "Uzbekistan", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/uz/vector.svg" },
+    { name: "Vietnam", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/vn/vector.svg" },
+    { name: "Yemen", continent: "Asia", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ye/vector.svg" },
+
+    // EUROPE
+    { name: "Albania", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/al/vector.svg" },
+    { name: "Andorra", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ad/vector.svg" },
+    { name: "Austria", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/at/vector.svg" },
+    { name: "Belarus", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/by/vector.svg" },
+    { name: "Belgium", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/be/vector.svg" },
+    { name: "Bosnia and Herzegovina", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ba/vector.svg" },
+    { name: "Bulgaria", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bg/vector.svg" },
+    { name: "Croatia", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/hr/vector.svg" },
+    { name: "Czech Republic", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/cz/vector.svg" },
+    { name: "Denmark", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/dk/vector.svg" },
+    { name: "Estonia", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ee/vector.svg" },
+    { name: "Finland", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/fi/vector.svg" },
+    { name: "France", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/fr/vector.svg" },
+    { name: "Germany", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/de/vector.svg" },
+    { name: "Greece", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gr/vector.svg" },
+    { name: "Hungary", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/hu/vector.svg" },
+    { name: "Iceland", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/is/vector.svg" },
+    { name: "Ireland", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ie/vector.svg" },
+    { name: "Italy", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/it/vector.svg" },
+    { name: "Latvia", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/lv/vector.svg" },
+    { name: "Liechtenstein", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/li/vector.svg" },
+    { name: "Lithuania", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/lt/vector.svg" },
+    { name: "Luxembourg", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/lu/vector.svg" },
+    { name: "Malta", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mt/vector.svg" },
+    { name: "Moldova", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/md/vector.svg" },
+    { name: "Monaco", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mc/vector.svg" },
+    { name: "Montenegro", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/me/vector.svg" },
+    { name: "Netherlands", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/nl/vector.svg" },
+    { name: "North Macedonia", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mk/vector.svg" },
+    { name: "Norway", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/no/vector.svg" },
+    { name: "Poland", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/pl/vector.svg" },
+    { name: "Portugal", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/pt/vector.svg" },
+    { name: "Romania", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ro/vector.svg" },
+    { name: "Russia", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ru/vector.svg" },
+    { name: "San Marino", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sm/vector.svg" },
+    { name: "Serbia", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/rs/vector.svg" },
+    { name: "Slovakia", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sk/vector.svg" },
+    { name: "Slovenia", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/si/vector.svg" },
+    { name: "Spain", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/es/vector.svg" },
+    { name: "Sweden", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/se/vector.svg" },
+    { name: "Switzerland", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ch/vector.svg" },
+    { name: "Ukraine", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ua/vector.svg" },
+    { name: "United Kingdom", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gb/vector.svg" },
+    { name: "Vatican City", continent: "Europe", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/va/vector.svg" },
+
+    // NORTH AMERICA
+    { name: "Antigua and Barbuda", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ag/vector.svg" },
+    { name: "Bahamas", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bs/vector.svg" },
+    { name: "Barbados", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bb/vector.svg" },
+    { name: "Belize", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bz/vector.svg" },
+    { name: "Canada", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ca/vector.svg" },
+    { name: "Costa Rica", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/cr/vector.svg" },
+    { name: "Cuba", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/cu/vector.svg" },
+    { name: "Dominica", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/dm/vector.svg" },
+    { name: "Dominican Republic", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/do/vector.svg" },
+    { name: "El Salvador", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sv/vector.svg" },
+    { name: "Grenada", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gd/vector.svg" },
+    { name: "Guatemala", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gt/vector.svg" },
+    { name: "Haiti", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ht/vector.svg" },
+    { name: "Honduras", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/hn/vector.svg" },
+    { name: "Jamaica", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/jm/vector.svg" },
+    { name: "Mexico", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mx/vector.svg" },
+    { name: "Nicaragua", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ni/vector.svg" },
+    { name: "Panama", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/pa/vector.svg" },
+    { name: "Saint Kitts and Nevis", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/kn/vector.svg" },
+    { name: "Saint Lucia", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/lc/vector.svg" },
+    { name: "Saint Vincent and the Grenadines", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/vc/vector.svg" },
+    { name: "Trinidad and Tobago", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/tt/vector.svg" },
+    { name: "USA", continent: "North America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/us/vector.svg" },
+
+    // SOUTH AMERICA
+    { name: "Argentina", continent: "South America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ar/vector.svg" },
+    { name: "Bolivia", continent: "South America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/bo/vector.svg" },
+    { name: "Brazil", continent: "South America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/br/vector.svg" },
+    { name: "Chile", continent: "South America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/cl/vector.svg" },
+    { name: "Colombia", continent: "South America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/co/vector.svg" },
+    { name: "Ecuador", continent: "South America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ec/vector.svg" },
+    { name: "Guyana", continent: "South America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gy/vector.svg" },
+    { name: "Paraguay", continent: "South America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/py/vector.svg" },
+    { name: "Peru", continent: "South America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/pe/vector.svg" },
+    { name: "Suriname", continent: "South America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sr/vector.svg" },
+    { name: "Uruguay", continent: "South America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/uy/vector.svg" },
+    { name: "Venezuela", continent: "South America", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ve/vector.svg" },
+
+    // OCEANIA
+    { name: "Australia", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/au/vector.svg" },
+    { name: "Fiji", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/fj/vector.svg" },
+    { name: "Kiribati", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ki/vector.svg" },
+    { name: "Marshall Islands", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/mh/vector.svg" },
+    { name: "Micronesia", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/fm/vector.svg" },
+    { name: "Nauru", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/nr/vector.svg" },
+    { name: "New Zealand", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/nz/vector.svg" },
+    { name: "Palau", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/pw/vector.svg" },
+    { name: "Papua New Guinea", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/pg/vector.svg" },
+    { name: "Samoa", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ws/vector.svg" },
+    { name: "Solomon Islands", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/sb/vector.svg" },
+    { name: "Tonga", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/to/vector.svg" },
+    { name: "Tuvalu", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/tv/vector.svg" },
+    { name: "Vanuatu", continent: "Oceania", img: "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/vu/vector.svg" }
+];
+
+        let availableCountries = [...masterList];
+        const continents = ["Africa", "Asia", "Europe", "North America", "South America", "Oceania"];
+
+        function init() {
+            const zonesContainer = document.getElementById('drop-zones');
+            continents.forEach(c => {
+                const z = document.createElement('div');
+                z.className = 'zone';
+                z.innerHTML = `<strong>${c}</strong>`;
+                z.dataset.continent = c;
+                z.ondragover = e => { e.preventDefault(); z.classList.add('drag-over'); };
+                z.ondragleave = () => z.classList.remove('drag-over');
+                z.ondrop = handleDrop;
+                zonesContainer.appendChild(z);
+            });
+            spawnBatch();
+        }
+
+        function spawnBatch() {
+            const area = document.getElementById('shapes-area');
+            area.innerHTML = '';
+            document.getElementById('counter').innerText = `Remaining Countries: ${availableCountries.length}`;
+
+            if (availableCountries.length === 0) {
+                document.getElementById('message').innerText = "🏆 You sorted the whole world!";
+                return;
+            }
+
+            // Shuffle and pick top 3
+            availableCountries.sort(() => 0.5 - Math.random());
+            const batch = availableCountries.slice(0, 3);
+
+            batch.forEach(country => {
+                const card = document.createElement('div');
+                card.className = 'country-card';
+                card.draggable = true;
+                card.id = country.name;
+                card.dataset.continent = country.continent;
+                card.innerHTML = `<img src="${country.img}" class="silhouette">`;
+                card.ondragstart = e => e.dataTransfer.setData("text", e.target.id);
+                area.appendChild(card);
+            });
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            this.classList.remove('drag-over');
+            const name = e.dataTransfer.getData("text");
+            const el = document.getElementById(name);
+            const msg = document.getElementById('message');
+
+            if (el.dataset.continent === this.dataset.continent) {
+                // Remove from the master available list so it never repeats
+                availableCountries = availableCountries.filter(c => c.name !== name);
+                
+                // Add mini version to the box
+                const mini = el.querySelector('img');
+                mini.className = 'correct-item';
+                this.appendChild(mini);
+                el.remove();
+                
+                msg.innerText = `Correct! That's ${name}.`;
+                msg.style.color = "green";
+                
+                if (document.getElementById('shapes-area').children.length === 0) {
+                    setTimeout(spawnBatch, 1000);
+                }
+            } else {
+                msg.innerText = "Try again! That's not the right continent.";
+                msg.style.color = "red";
+                // Reset position happens automatically as it's not appended to the zone
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>
